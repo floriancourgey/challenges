@@ -1,0 +1,5 @@
+fdisk -lu stega.img
+sudo losetup -o 0 /dev/loop0 stega.img
+sudo fsck -fv /dev/loop0 (puis option 1)
+sudo mount /dev/loop0 /mnt
+ls /mnt/laby
