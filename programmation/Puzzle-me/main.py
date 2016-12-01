@@ -11,12 +11,14 @@ import urllib2
 from PIL import Image
 import StringIO
 import config
+import time
 
 url = 'https://www.newbiecontest.org/epreuves/prog/prog15.php'
 opener = urllib2.build_opener()
 opener.addheaders.append(('Cookie', config.COOKIE))
 print('Chargement de '+url)
 img = opener.open(url).read()
+time1 = time.clock()
 print("Chargé")
 try:
     im1 = Image.open(StringIO.StringIO(img))
@@ -206,7 +208,8 @@ for x_master in range(1,5):
                     y_ok = y
         copier1dans3(x_ok,y_ok,x_master,y_master)
         regions_ok.append((x_ok,y_ok))
-
+time2 = time.clock()
+print('Terminé en '+str(time2-time1)+'s')
 # im2.show()
 im3.show()
 # im3.save('exemple2-magnifique.png')
