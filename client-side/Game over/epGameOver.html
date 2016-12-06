@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var checksum = 3696619;
+      var alphabet="                   azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN0123456789_$&#@";
+      function Check(login) {
+        if(undefined === login)
+          login=document.forms["flog"].elements["login"].value;
+        var password="souris";
+        var nblog=login.length;
+        var sum=1;
+        var n=Math.max(nblog,6);
+        for (var i=0;i<n;i++) {
+          var index1=alphabet.indexOf(login.substring(i,i+1))+10;
+          var index2=alphabet.indexOf(password.substring(i,i+1))+10;
+          sum=sum+(index1*n*(i+1))*(index2*(i+1)*(i+1));
+        }
+        if (sum==checksum) {
+          alert(login+" est valide");
+        } else {
+          console.error(login+" est invalide");
+        }
+      }
+      function Verifie() {
+        Check();
+      }
+    </script>
+  </body>
+</html>
