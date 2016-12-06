@@ -1,9 +1,10 @@
 https://www.newbiecontest.org/epreuves/crypto/crypto.txt
 
-essayé sans succès :
-- base64 encode/decode
-- monogram/bigram/trigram (http://practicalcryptography.com/cryptanalysis/text-characterisation/monogram-bigram-and-trigram-frequency-counts/)
-- binaire/hex/ascii
-- cesar bruteforce
-- file signature
-- l33t
+on tombe sur des blocs de binaires
+
+1. bin to ascii (on tombe sur du base 64)
+2. base64 to ascii (on tombe sur du hex)
+3. hex to ascii
+4. DPPL:// semble familier...
+
+
