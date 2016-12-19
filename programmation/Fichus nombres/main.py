@@ -100,25 +100,10 @@ def programme2():
     # questions = matches.group(1)
 
     # question 1.
-    # tout ceci peut se pré-calculer car les données ne changent pas
-    # fwords = fibword(45)
-    # print("milliardième lettre "+fwords[44][1000000000-1])
-    # print("10 lettres avant et 10 lettres après la milliardième : "+fwords[44][1000000000-10:1000000000+10])
-    # milliard = fwords[44][0:1000000000]
-    # milliard_taille = len(milliard)
-    # milliard_nb_hommes = milliard.count('H')
-    # milliard_nb_femmes = milliard.count('F')
-    # milliard_check = milliard_nb_hommes + milliard_nb_femmes
-    # print("len milliard : "+str(milliard_taille)+", nb hommes : "+str(milliard_nb_hommes)+", nb femmes : "+str(milliard_nb_femmes)+', check h+f :'+str(milliard_check))
-    # mode normal :
+    # ceci a été précalculé avec la fonction repartition_pour_n_habitants_total(1000000000)
     reponse1_sexe = 'H'
     reponse1_hommes = 381966012
     reponse1_femmes = 618033988
-
-    # avec reverse :
-    # reponse1_sexe = 'Femme'
-    # reponse1_hommes = 381966011
-    # reponse1_femmes = 618033989
 
     # question 2.
     ## recherche des données :
@@ -151,9 +136,15 @@ def programme2():
     # for k,v in data.items():
         # data[k] = str(v)
     html = post(urlProg2Validation, data=data)
-    # matches = re.search(r"<br/>Le login est: (.+)\.</body>", html)
-    # login = matches.group(1)
-    # print("login : "+login)
+    matches = re.search(r"pass est: (.+)\.</body>", html)
+    mdp = matches.group(1)
+    print("===================")
+    print("==== Réponse 2 ====")
+    print("mdp : "+mdp)
+    print("===================")
+    print("===================")
+    print()
+    return mdp
 # question 1
 def fibword(n=38, debug=True):
     # fwords = ['1', '0']
@@ -293,39 +284,7 @@ def tests_unitaires():
 tests_unitaires()
 
 # exit()
-programme1()
-programme2()
+login = programme1()
+mdp = programme2()
 
 exit()
-print('cb H/F sur cent people ? Quel sexe du centième ?')
-fwords = fibword(12)
-
-print("sexe du 10eme : "+fwords[6][10-1])
-dix = fwords[6][0:10]
-dix_taille = len(dix)
-dix_nb_hommes = dix.count('H')
-dix_nb_femmes = dix.count('F')
-dix_check = dix_nb_hommes + dix_nb_femmes
-print("len dix : "+str(dix_taille)+", nb hommes : "+str(dix_nb_hommes)+", nb femmes : "+str(dix_nb_femmes)+', check h+f :'+str(dix_check))
-print()
-print("sexe du 100eme : "+fwords[11][100-1])
-cent = fwords[11][0:100]
-cent_taille = len(cent)
-cent_nb_hommes = cent.count('H')
-cent_nb_femmes = cent.count('F')
-cent_check = cent_nb_hommes + cent_nb_femmes
-print("len milliard : "+str(cent_taille)+", nb hommes : "+str(cent_nb_hommes)+", nb femmes : "+str(cent_nb_femmes)+', check h+f :'+str(cent_check))
-
-# fwords = fibword(45)
-# print("milliardième lettre "+fwords[44][1000000000-1])
-# print("10 lettres avant et 10 lettres après la milliardième : "+fwords[44][1000000000-10:1000000000+10])
-# milliard = fwords[44][0:1000000000]
-# milliard_taille = len(milliard)
-# milliard_nb_hommes = milliard.count('H')
-# milliard_nb_femmes = milliard.count('F')
-# milliard_check = milliard_nb_hommes + milliard_nb_femmes
-# print("len milliard : "+str(milliard_taille)+", nb hommes : "+str(milliard_nb_hommes)+", nb femmes : "+str(milliard_nb_femmes)+', check h+f :'+str(milliard_check))
-
-
-
-#envoi
