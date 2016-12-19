@@ -111,9 +111,9 @@ def programme2():
     # milliard_check = milliard_nb_hommes + milliard_nb_femmes
     # print("len milliard : "+str(milliard_taille)+", nb hommes : "+str(milliard_nb_hommes)+", nb femmes : "+str(milliard_nb_femmes)+', check h+f :'+str(milliard_check))
     # mode normal :
-    reponse1_sexe = 'F'
-    reponse1_hommes = 381966011
-    reponse1_femmes = 618033989
+    reponse1_sexe = 'H'
+    reponse1_hommes = 381966012
+    reponse1_femmes = 618033988
 
     # avec reverse :
     # reponse1_sexe = 'Femme'
@@ -189,7 +189,7 @@ def fibonacci_iteratif(n):
 # non préçis
 def fibonacci_formule(n):
     return round( ((1+sqrt(5))**n-(1-sqrt(5))**n)/(2**n*sqrt(5)) )
-
+# précis
 def get_annees_pour_enlever_n_habitants(n_habitants):
     n_habitants_total = 0
     n = 0
@@ -198,6 +198,39 @@ def get_annees_pour_enlever_n_habitants(n_habitants):
         n_habitants_total += fibonacci_iteratif(n)
         # print("année "+str(n)+" : "+str(n_habitants_total)+" habs enlevés au total")
     return n
+# retourne (nb_hommes, nb_femmes, sexe_n_habitant) pour le n_ième habitant
+def repartition_pour_n_habitants_total(n_habitants, debug=True):
+    # on cherche l'année où au total on a eu n_habitants enlevés
+    n = get_annees_pour_enlever_n_habitants(n_habitants)
+    if debug:
+        print("il faut "+str(n)+" années pour enlever "+str(n_habitants)+" habitants")
+    # on calcule les fibwords
+    fwords = fibword(n, debug)
+    # on retient le dernier
+    dernier_fword = fwords[n-1]
+    # on calcule combien d'habitants ont été enlevés l'année n-1
+    n_habitants_n_1 = 0
+    i = 0
+    while i < n-1:
+        i += 1
+        n_habitants_n_1 += fibonacci_iteratif(i)
+    indice_sexe_n_habitant = n_habitants-n_habitants_n_1-1
+    sexe_n_habitant = dernier_fword[n_habitants-n_habitants_n_1-1]
+    if debug:
+        print(str(n_habitants)+"eme sexe correspond à l'indice "+str(indice_sexe_n_habitant)+" qui vaut "+sexe_n_habitant)
+
+    # sur le dernier word, on enlève tous les habitants en trop
+    fwords[n-1] = dernier_fword[0:indice_sexe_n_habitant+1]
+
+    # pour chaque fwords, on compte les H et les F
+    nb_hommes = 0
+    nb_femmes = 0
+    for fword in fwords:
+        nb_hommes += fword.count('H')
+        nb_femmes += fword.count('F')
+
+    return nb_hommes, nb_femmes, sexe_n_habitant
+
 def tests_unitaires():
     print('TU fibwords...', end=' ')
     # check fibonacci words
@@ -263,7 +296,18 @@ def tests_unitaires():
             exit('get_annees_pour_enlever_n_habitants('+str(nb_habitants)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
     print('OK')
 
+    # tests de répartition
+    print('TU repartition_pour_n_habitants_total...', end=' ')
+    dico = {10:(4,6,'F'), 11:(5,6,'H'), 12:(5,7,'F')}
+    for n_habitants, resultat_attendu in dico.items():
+        resultat_calcule = repartition_pour_n_habitants_total(n_habitants, False)
+        if resultat_calcule != resultat_attendu:
+            exit('repartition_pour_n_habitants_total('+str(n_habitants)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
+    print('OK')
+
+
 tests_unitaires()
+
 # exit()
 programme1()
 programme2()
