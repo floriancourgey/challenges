@@ -235,27 +235,11 @@ def tests_unitaires():
     print('TU fibwords...', end=' ')
     # check fibonacci words
     fwords = fibword(12, False)
-    # check année 1
-    if fwords[0] != 'H':
-        exit('année 1 déconne')
-    # check année 2
-    if fwords[1] != 'F':
-        exit('année 2 déconne')
-    # check année 3
-    if fwords[2] != 'HF':
-        exit('année 3 déconne')
-    # check année 4
-    if fwords[3] != 'FHF':
-        exit('année 4 déconne')
-    # check année 5
-    if fwords[4] != 'HFFHF':
-        exit('année 5 déconne')
-    # check année 6
-    if fwords[5] != 'FHFHFFHF':
-        exit('année 6 déconne')
-    # check année 7
-    if fwords[6] != 'HFFHFFHFHFFHF':
-        exit('année 7 déconne')
+    dico = {0:'H', 1:'F', 2:'HF', 3:'FHF', 4:'HFFHF', 5:'FHFHFFHF', 6:'HFFHFFHFHFFHF'}
+    for n, resultat_attendu in dico.items():
+        resultat_calcule = fwords[n]
+        if resultat_calcule != resultat_attendu:
+            exit('fibword('+str(n)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
     print('OK')
 
     # on a 2 types de fibonacci :
