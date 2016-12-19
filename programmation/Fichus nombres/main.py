@@ -127,14 +127,8 @@ def programme2():
     print("2. Combien d'années pour enlever "+nbHabitantsAEnlever+" habitants ?")
     nbHabitantsAEnlever = int(nbHabitantsAEnlever)
     ## calcul réponse :
-    nbHabitantsEnleves = 0
-    n = 0
-    while(nbHabitantsEnleves < nbHabitantsAEnlever):
-        n += 1
-        nbHabitantsEnleves += fibonacci(n)
-        print("année "+str(n)+" : total de "+nbHabitantsEnleves+" habitants enlevés")
-    reponse2 = n
-    print("=> "+str(nbHabitantsEnleves)+" habitants enlevés sur un total de "+str(reponse2)+" années")
+    reponse2 = get_annees_pour_enlever_n_habitants(nbHabitantsAEnlever)
+    print("=> "+str(reponse2)+" années pour enlever "+str(nbHabitantsAEnlever)+" habitants")
 
     # question 3.
     ## recherche des données :
@@ -143,8 +137,7 @@ def programme2():
     print("3. Combien d'habitants enlevés durant la "+n+"ème année ?")
     n = int(n)
     ## calcul réponse
-    nbHabitantsEnleves = fibonacci(n)
-    reponse3 = nbHabitantsEnleves
+    reponse3 = fibonacci_iteratif(n)
     print("=> "+str(reponse3)+" habitants enlevés sur l'année "+str(n))
 
     # validation
@@ -183,22 +176,24 @@ def fibword(n=38, debug=True):
     return fwords
 # question 3
 # retourne le nombre d'enlevés sur 1 année (1 indexed)
-def fibonacci(n):
+# préçis
+def fibonacci_iteratif(n):
+    a, b = 0, 1
+    while n > 0:
+        a, b = b, a + b
+        n -= 1
+    return a
+# retourne le nombre d'enlevés sur 1 année (1 indexed)
+# non préçis
+def fibonacci_formule(n):
     return round( ((1+sqrt(5))**n-(1-sqrt(5))**n)/(2**n*sqrt(5)) )
-# question 2
-# retourne le nombre total d'enlevés sur les n années (1 indexed)
-def fibonacci_total(n):
-    total = 0
-    for i in range(0,n+1):
-        total += fibonacci(i)
-        # print("fib_total("+str(i)+")="+str(total))
-    return total
+
 def get_annees_pour_enlever_n_habitants(n_habitants):
     n_habitants_total = 0
     n = 0
     while n_habitants_total < n_habitants:
         n += 1
-        n_habitants_total += fibonacci(n)
+        n_habitants_total += fibonacci_iteratif(n)
         # print("année "+str(n)+" : "+str(n_habitants_total)+" habs enlevés au total")
     return n
 def tests_unitaires():
@@ -228,29 +223,33 @@ def tests_unitaires():
         exit('année 7 déconne')
     print('OK')
 
-    # check fibonacci(n) avec http://php.bubble.ro/fibonacci/
-    # attention, notre fibonacci(n) utilise la méthode par formule, plutot que la méthode itérative, on est moins préçis
+    # on a 2 types de fibonacci :
+    # l'approche itérative (précise) et l'approche par formule (non précise
+    # car elle repose sur le golden ratio, lui même non précis)
+    print('TU fibonacci_iteratif...', end=' ')
+    dico = {1:1, 2:1, 3:2, 4:3, 5:5, 6:8, 7:13, 8:21, 9:34, 10:55,
+        50:12586269025,
+        74:1304969544928657,
+        100:354224848179261915075}
+    for n, resultat_attendu in dico.items():
+        resultat_calcule = fibonacci_iteratif(n)
+        if resultat_calcule != resultat_attendu:
+            exit('fibonacci_iteratif('+str(n)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
+    print('OK')
+
+    # check fibonacci_formule(n) avec http://php.bubble.ro/fibonacci/
+    # attention, notre fibonacci_formule(n) utilise la méthode par formule, plutot que la méthode itérative, on est moins préçis
     # on s'en fout de perdre un peu de précision car on ne cherche pas un résultat exact mais une approximation
     # ne pas dépasser nMax=69
     # voir http://mortada.net/fibonacci-numbers-in-python.html
-    print('TU fibonacci...', end=' ')
+    print('TU fibonacci_formule...', end=' ')
     dico = {1:1, 2:1, 3:2, 4:3, 5:5, 6:8, 7:13, 8:21, 9:34, 10:55,
         50:12586269025,
         69:117669030460994}
     for n, resultat_attendu in dico.items():
-        resultat_calcule = fibonacci(n)
+        resultat_calcule = fibonacci_formule(n)
         if resultat_calcule != resultat_attendu:
-            exit('fibonacci('+str(n)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
-    print('OK')
-
-    # check fibonacci total
-    # http://www.acalculator.com/number-sequence-calculator-fibonacci-solver.html
-    print('TU fibonacci_total...', end=' ')
-    dico = {1:1, 2:2, 3:4, 4:7, 5:12, 6:20, 7:33, 34:14930351, 45:2971215072}
-    for n, resultat_attendu in dico.items():
-        resultat_calcule = fibonacci_total(n)
-        if resultat_calcule != resultat_attendu:
-            exit('fibonacci_total('+str(n)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
+            exit('fibonacci_formule('+str(n)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
     print('OK')
 
     # combien d'années pour enlever 32 habitants ? 7
@@ -264,13 +263,8 @@ def tests_unitaires():
 
 tests_unitaires()
 # exit()
-# programme1()
-# programme2()
-
-# print(fibonacci(15))
-# print(fibonacci(25))
-# print(fibonacci(35))
-# print(fibonacci(45))
+programme1()
+programme2()
 
 exit()
 print('cb H/F sur cent people ? Quel sexe du centième ?')
