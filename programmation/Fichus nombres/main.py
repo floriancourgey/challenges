@@ -28,6 +28,7 @@ urlProg1Validation = urlBase+'verif_1.php'
 urlProg2 = urlBase+'prog_2.php'
 urlProg2Validation = urlBase+'verif_2.php'
 urlProg3 = urlBase+'prog_3.php'
+urlProg3Validation = urlProg3
 
 # html = "<strong>Bienvenue!</strong><br/><br/>Les sept anagrammes dans l'ordre sont:  0716454-4023366x8527952;6959196'1563139°3531833&8282988<br/><br/>Renvoyez les réponses en moins d'une seco"
 
@@ -283,8 +284,8 @@ def tests_unitaires():
 
 tests_unitaires()
 
-# exit()
 login = programme1()
 mdp = programme2()
 
-exit()
+data = {'login':login, 'pass':mdp}
+html = post(urlProg3Validation, data)
