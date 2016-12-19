@@ -148,6 +148,8 @@ def programme2():
         "rep4":reponse2,
         "rep5":reponse3
     }
+    # for k,v in data.items():
+        # data[k] = str(v)
     html = post(urlProg2Validation, data=data)
     # matches = re.search(r"<br/>Le login est: (.+)\.</body>", html)
     # login = matches.group(1)
