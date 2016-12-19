@@ -110,15 +110,21 @@ def programme2():
     # milliard_nb_femmes = milliard.count('F')
     # milliard_check = milliard_nb_hommes + milliard_nb_femmes
     # print("len milliard : "+str(milliard_taille)+", nb hommes : "+str(milliard_nb_hommes)+", nb femmes : "+str(milliard_nb_femmes)+', check h+f :'+str(milliard_check))
+    # mode normal :
     reponse1_sexe = 'Femme'
     reponse1_hommes = 381966011
     reponse1_femmes = 618033989
+
+    # avec reverse :
+    # reponse1_sexe = 'Femme'
+    # reponse1_hommes = 381966011
+    # reponse1_femmes = 618033989
 
     # question 2.
     ## recherche des données :
     matches = re.search(r"extraterrestres pour enlever (\d+) habitants", html)
     nbHabitantsAEnlever = matches.group(1)
-    print("2. Combien d'années pour enlever  "+nbHabitantsAEnlever+" habitants ?")
+    print("2. Combien d'années pour enlever "+nbHabitantsAEnlever+" habitants ?")
     nbHabitantsAEnlever = int(nbHabitantsAEnlever)
     ## calcul réponse :
     nbHabitantsEnleves = 0
@@ -126,6 +132,7 @@ def programme2():
     while(nbHabitantsEnleves < nbHabitantsAEnlever):
         n += 1
         nbHabitantsEnleves += fibonacci(n)
+        print("année "+str(n)+" : total de "+nbHabitantsEnleves+" habitants enlevés")
     reponse2 = n
     print("=> "+str(nbHabitantsEnleves)+" habitants enlevés sur un total de "+str(reponse2)+" années")
 
@@ -153,29 +160,119 @@ def programme2():
     # login = matches.group(1)
     # print("login : "+login)
 # question 1
-def fibword(n=38):
+def fibword(n=38, debug=True):
     # fwords = ['1', '0']
     fwords = ['H', 'F']
-    print('%-3s %13s %10s %s' % tuple('N Longueur Secondes Résultat'.split()))
+    if debug:
+        print('%-3s %13s %10s %s' % tuple('N Longueur Secondes Résultat'.split()))
     def pr(n, fwords):
         temps1 = time.time()
         while len(fwords) < n:
-            fwords += [''.join(fwords[-2:][::-1])]
+            fword = ''.join(fwords[-2:])
+            # si reverse order
+            # fword = ''.join(fwords[-2:][::-1)
+            fwords +=  [fword]
         v = fwords[n-1]
         temps2 = time.time()-temps1
         longueur = format(len(v), ',d')
         secondes = '{0:.2g}'.format(temps2)
         resultat = v if len(v) < 150 else '_'
-        print('%3i %13s %10s %s' % (n, longueur, secondes, resultat))
+        if debug:
+            print('%3i %13s %10s %s' % (n, longueur, secondes, resultat))
     for n in range(1, n+1): pr(n, fwords)
     return fwords
-# question 2 & 3
+# question 3
+# retourne le nombre d'enlevés sur 1 année (1 indexed)
 def fibonacci(n):
     return round( ((1+sqrt(5))**n-(1-sqrt(5))**n)/(2**n*sqrt(5)) )
+# question 2
+# retourne le nombre total d'enlevés sur les n années (1 indexed)
+def fibonacci_total(n):
+    total = 0
+    for i in range(0,n+1):
+        total += fibonacci(i)
+        # print("fib_total("+str(i)+")="+str(total))
+    return total
+def get_annees_pour_enlever_n_habitants(n_habitants):
+    n_habitants_total = 0
+    n = 0
+    while n_habitants_total < n_habitants:
+        n += 1
+        n_habitants_total += fibonacci(n)
+        # print("année "+str(n)+" : "+str(n_habitants_total)+" habs enlevés au total")
+    return n
+def tests_unitaires():
+    print('TU fibwords...', end=' ')
+    # check fibonacci words
+    fwords = fibword(12, False)
+    # check année 1
+    if fwords[0] != 'H':
+        exit('année 1 déconne')
+    # check année 2
+    if fwords[1] != 'F':
+        exit('année 2 déconne')
+    # check année 3
+    if fwords[2] != 'HF':
+        exit('année 3 déconne')
+    # check année 4
+    if fwords[3] != 'FHF':
+        exit('année 4 déconne')
+    # check année 5
+    if fwords[4] != 'HFFHF':
+        exit('année 5 déconne')
+    # check année 6
+    if fwords[5] != 'FHFHFFHF':
+        exit('année 6 déconne')
+    # check année 7
+    if fwords[6] != 'HFFHFFHFHFFHF':
+        exit('année 7 déconne')
+    print('OK')
 
+    # check fibonacci(n) avec http://php.bubble.ro/fibonacci/
+    # attention, notre fibonacci(n) utilise la méthode par formule, plutot que la méthode itérative, on est moins préçis
+    # on s'en fout de perdre un peu de précision car on ne cherche pas un résultat exact mais une approximation
+    # ne pas dépasser nMax=69
+    # voir http://mortada.net/fibonacci-numbers-in-python.html
+    print('TU fibonacci...', end=' ')
+    dico = {1:1, 2:1, 3:2, 4:3, 5:5, 6:8, 7:13, 8:21, 9:34, 10:55,
+        50:12586269025,
+        69:117669030460994}
+    for n, resultat_attendu in dico.items():
+        resultat_calcule = fibonacci(n)
+        if resultat_calcule != resultat_attendu:
+            exit('fibonacci('+str(n)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
+    print('OK')
+
+    # check fibonacci total
+    # http://www.acalculator.com/number-sequence-calculator-fibonacci-solver.html
+    print('TU fibonacci_total...', end=' ')
+    dico = {1:1, 2:2, 3:4, 4:7, 5:12, 6:20, 7:33, 34:14930351, 45:2971215072}
+    for n, resultat_attendu in dico.items():
+        resultat_calcule = fibonacci_total(n)
+        if resultat_calcule != resultat_attendu:
+            exit('fibonacci_total('+str(n)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
+    print('OK')
+
+    # combien d'années pour enlever 32 habitants ? 7
+    print('TU get_annees_pour_enlever_n_habitants...', end=' ')
+    dico = {32:7, 33:7, 34:8, 2971215071:45, 2971215072:45, 2971215073:46}
+    for nb_habitants, resultat_attendu in dico.items():
+        resultat_calcule = get_annees_pour_enlever_n_habitants(nb_habitants)
+        if resultat_calcule != resultat_attendu:
+            exit('get_annees_pour_enlever_n_habitants('+str(nb_habitants)+') déconne : Attendu '+str(resultat_attendu)+' - Calculé '+str(resultat_calcule))
+    print('OK')
+
+tests_unitaires()
+# exit()
 # programme1()
 # programme2()
 
+# print(fibonacci(15))
+# print(fibonacci(25))
+# print(fibonacci(35))
+# print(fibonacci(45))
+
+exit()
 print('cb H/F sur cent people ? Quel sexe du centième ?')
 fwords = fibword(12)
 
@@ -194,6 +291,9 @@ cent_nb_hommes = cent.count('H')
 cent_nb_femmes = cent.count('F')
 cent_check = cent_nb_hommes + cent_nb_femmes
 print("len milliard : "+str(cent_taille)+", nb hommes : "+str(cent_nb_hommes)+", nb femmes : "+str(cent_nb_femmes)+', check h+f :'+str(cent_check))
+
+# fwords = fibword(45)
+# print("milliardième lettre "+fwords[44][1000000000-1])
 # print("10 lettres avant et 10 lettres après la milliardième : "+fwords[44][1000000000-10:1000000000+10])
 # milliard = fwords[44][0:1000000000]
 # milliard_taille = len(milliard)
