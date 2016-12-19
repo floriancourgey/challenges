@@ -118,7 +118,7 @@ def programme2():
     ## recherche des données :
     matches = re.search(r"extraterrestres pour enlever (\d+) habitants", html)
     nbHabitantsAEnlever = matches.group(1)
-    print("nbHabitantsAEnlever : "+nbHabitantsAEnlever)
+    print("2. Combien d'années pour enlever  "+nbHabitantsAEnlever+" habitants ?")
     nbHabitantsAEnlever = int(nbHabitantsAEnlever)
     ## calcul réponse :
     nbHabitantsEnleves = 0
@@ -127,18 +127,18 @@ def programme2():
         n += 1
         nbHabitantsEnleves += fibonacci(n)
     reponse2 = n
-    print("2. "+str(nbHabitantsEnleves)+" habitants enlevés sur un total de "+str(reponse2)+" années")
+    print("=> "+str(nbHabitantsEnleves)+" habitants enlevés sur un total de "+str(reponse2)+" années")
 
     # question 3.
     ## recherche des données :
     matches = re.search(r"captifs durant la (\d+)", html)
     n = matches.group(1)
-    print("durant la "+n+"ème année")
+    print("3. Combien d'habitants enlevés durant la "+n+"ème année ?")
     n = int(n)
     ## calcul réponse
     nbHabitantsEnleves = fibonacci(n)
     reponse3 = nbHabitantsEnleves
-    print("3. "+str(reponse3)+" habitants enlevés sur l'année "+str(n))
+    print("=> "+str(reponse3)+" habitants enlevés sur l'année "+str(n))
 
     # validation
     data = {
@@ -173,8 +173,34 @@ def fibword(n=38):
 def fibonacci(n):
     return round( ((1+sqrt(5))**n-(1-sqrt(5))**n)/(2**n*sqrt(5)) )
 
-programme1()
-programme2()
+# programme1()
+# programme2()
+
+print('cb H/F sur cent people ? Quel sexe du centième ?')
+fwords = fibword(12)
+
+print("sexe du 10eme : "+fwords[6][10-1])
+dix = fwords[6][0:10]
+dix_taille = len(dix)
+dix_nb_hommes = dix.count('H')
+dix_nb_femmes = dix.count('F')
+dix_check = dix_nb_hommes + dix_nb_femmes
+print("len dix : "+str(dix_taille)+", nb hommes : "+str(dix_nb_hommes)+", nb femmes : "+str(dix_nb_femmes)+', check h+f :'+str(dix_check))
+print()
+print("sexe du 100eme : "+fwords[11][100-1])
+cent = fwords[11][0:100]
+cent_taille = len(cent)
+cent_nb_hommes = cent.count('H')
+cent_nb_femmes = cent.count('F')
+cent_check = cent_nb_hommes + cent_nb_femmes
+print("len milliard : "+str(cent_taille)+", nb hommes : "+str(cent_nb_hommes)+", nb femmes : "+str(cent_nb_femmes)+', check h+f :'+str(cent_check))
+# print("10 lettres avant et 10 lettres après la milliardième : "+fwords[44][1000000000-10:1000000000+10])
+# milliard = fwords[44][0:1000000000]
+# milliard_taille = len(milliard)
+# milliard_nb_hommes = milliard.count('H')
+# milliard_nb_femmes = milliard.count('F')
+# milliard_check = milliard_nb_hommes + milliard_nb_femmes
+# print("len milliard : "+str(milliard_taille)+", nb hommes : "+str(milliard_nb_hommes)+", nb femmes : "+str(milliard_nb_femmes)+', check h+f :'+str(milliard_check))
 
 
 
