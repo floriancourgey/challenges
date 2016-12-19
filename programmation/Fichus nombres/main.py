@@ -111,7 +111,7 @@ def programme2():
     # milliard_check = milliard_nb_hommes + milliard_nb_femmes
     # print("len milliard : "+str(milliard_taille)+", nb hommes : "+str(milliard_nb_hommes)+", nb femmes : "+str(milliard_nb_femmes)+', check h+f :'+str(milliard_check))
     # mode normal :
-    reponse1_sexe = 'Femme'
+    reponse1_sexe = 'F'
     reponse1_hommes = 381966011
     reponse1_femmes = 618033989
 
