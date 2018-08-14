@@ -9,7 +9,8 @@ file.write(bin_data)
 file.close()
 # write 3 files
 chunks = bin_data.split(b'\x89\x50\x4E\x47')
-for i,chunk in chunks:
-  file = open("file"+str(i)+".png")
-  file.write(chunk)
-  file.close()
+for i,chunk in enumerate(chunks):
+    file = open("file"+str(i)+".png", "wb")
+    print(chunk)
+    file.write(chunk)
+    file.close()
