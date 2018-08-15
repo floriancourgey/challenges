@@ -15,6 +15,6 @@ G43H1Z2.M8 ; G43=?, H1=of height 1, Z2=?, M8=start cutting fluid (coolant on)
 - footer
 ```gcode
 G91G28Y0.Z0.M9 ; M9=stop cutting fluid (coolant off)
-M30
+M30 ; end of program
 %
 ```
