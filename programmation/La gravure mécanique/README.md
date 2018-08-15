@@ -1,9 +1,10 @@
 # G-code encoding
-1. Info
+## 1. Info
 - https://en.wikipedia.org/wiki/G-code
 - http://linuxcnc.org/docs/html/gcode_fr.html
 - https://www.ntnu.no/wiki43/display/digilab/Understanding+G-Code
-2. Identify fixed parts
+- http://nraynaud.github.io/webgcode/ (online simulator)
+## 2. Identify fixed parts
 - header, it's basically positioning initialisation
 ```gcode
 %
@@ -19,7 +20,7 @@ G91G28Y0.Z0.M9 ; M9=stop cutting fluid (coolant off)
 M30 ; end of program
 %
 ```
-3. identify dynamic parts
+## 3. identify dynamic parts
 ```gcode
 G0 # enable rapid mode (don't draw anything)
 G52 X9 Y0 # set the origin to (9 0)
