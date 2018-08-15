@@ -10,7 +10,8 @@ window = pyglet.window.Window(1200, 300)
 i=0 # number of lines drawn
 rapidMode = True # True = don't draw, just move / False = draw
 scaleFactor = 20 # scale text smaller/bigger
-f = open('samples/1.gcode', 'r')
+filename = 'samples/3.gcode'
+f = open(filename, 'r')
 
 relativeX = 0 # last x (modified by moveRelativeToAbsolute() )
 relativeY = 0 # last y (modified by moveRelativeToAbsolute() )
@@ -25,7 +26,7 @@ def drawLineAbsolute(fromX, fromY, toX, toY):
     i+=1
     pyglet.graphics.draw(2, pyglet.gl.GL_LINES,
         ('v2f', (fromX+absoluteX, fromY+absoluteY, toX+absoluteX, toY+absoluteY)),
-        ('c3B', (255, 255, 255, 255, 255, 255)) # white
+        ('c3B', (0, 255, 0, 0, 255, 0)) # green
         # ('c3B', (0, 255, 0, 255, 0, 255)) # green to purple
     )
     print('draw abs', (fromX+absoluteX, fromY+absoluteY, toX+absoluteX, toY+absoluteY))
@@ -96,5 +97,7 @@ def on_draw():
                 drawLineFromRelativeToAbsolute(x,y)
 
         continue
+
+    pyglet.image.get_buffer_manager().get_color_buffer().save(filename+'.png')
 
 pyglet.app.run()
