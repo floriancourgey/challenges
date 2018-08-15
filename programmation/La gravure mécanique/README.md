@@ -2,6 +2,7 @@
 1. Info
 - https://en.wikipedia.org/wiki/G-code
 - http://linuxcnc.org/docs/html/gcode_fr.html
+- https://www.ntnu.no/wiki43/display/digilab/Understanding+G-Code
 2. Identify fixed parts
 - header, it's basically positioning initialisation
 ```gcode
