@@ -28,3 +28,9 @@ X2 Y6 # relatively from the last point (9,0), move last point to (2,6)
 G1 # disable rapid mode (now every instruction will drwa a line)
 Y5 # relatively from the last point (2,6), draw a line to (0,5)
 ```
+## 4. Analysis
+We just need a regex to extract G0 / G1 / G52 / X {float} / Y {float}:
+
+```python
+regex = "(?P<g0>G0)?(?P<g1>G1)?(?P<g52>G52)?(X(?P<x>[\-\d\.]+))?(Y(?P<y>[\-\d\.]+))?"
+```
