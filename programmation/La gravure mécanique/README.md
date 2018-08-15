@@ -20,7 +20,9 @@ M30 ; end of program
 ```
 3. identify dynamic parts
 ```gcode
+G0 # enable rapid mode (don't draw anything)
 G52 X9 Y0 # set the origin to (9 0)
-X2 Y6 # relatively from the last point (9,0), draw a line to (2,6)
+X2 Y6 # relatively from the last point (9,0), move last point to (2,6)
+G1 # disable rapid mode (now every instruction will drwa a line)
 Y5 # relatively from the last point (2,6), draw a line to (0,5)
 ```
