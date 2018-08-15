@@ -34,3 +34,7 @@ We just need a regex to extract G0 / G1 / G52 / X {float} / Y {float}:
 ```python
 regex = "(?P<g0>G0)?(?P<g1>G1)?(?P<g52>G52)?(X(?P<x>[\-\d\.]+))?(Y(?P<y>[\-\d\.]+))?"
 ```
+## 5. Example
+File [1.gcode](https://raw.githubusercontent.com/floriancourgey/newbiecontest/master/programmation/La%20gravure%20m%C3%A9canique/samples/1.gcode) gives
+![Gcode](https://raw.githubusercontent.com/floriancourgey/newbiecontest/master/programmation/La%20gravure%20m%C3%A9canique/samples/1%20black.gcode.png)
+See samples/.
