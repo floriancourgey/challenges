@@ -18,3 +18,9 @@ G91G28Y0.Z0.M9 ; M9=stop cutting fluid (coolant off)
 M30 ; end of program
 %
 ```
+3. identify dynamic parts
+```gcode
+G52 X9 Y0 # set the origin to (9 0)
+X2 Y6 # relatively from the last point (9,0), draw a line to (2,6)
+Y5 # relatively from the last point (2,6), draw a line to (0,5)
+```
