@@ -3,6 +3,7 @@
 import requests
 from PIL import Image, ImageFilter
 import config
+import cv2
 
 pngSignature = b'\x89\x50\x4E\x47'
 
@@ -54,12 +55,18 @@ for y in range(yMax):
 
 output.save("results/output.png") # save pixels modification
 
-output2 = output.resize((xMax*4, yMax*4))
-output2.save("results/output2.png")
-output3 = output2.filter(ImageFilter.GaussianBlur(1))
-# output3 = output2.filter(ImageFilter.BLUR)
-output3.save("results/output3.png")
+output2 = output.resize((xMax*5, yMax*5))
+output2.save("results/output_5.png")
 
-
+image = cv2.imread("results/output_5.png", 0)
+image = cv2.medianBlur(image, 5)
+# image = cv2.GaussianBlur(image,(5,5),0)
+# image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+image = cv2.threshold(image, 10, 255, cv2.THRESH_BINARY)[1]
+# a,b = cv2.threshold(image,127,255,cv2.THRESH_TOZERO)
+# image = cv2.bilateralFilter(image,9,75,75)
+cv2.imwrite("results/output_blur.png", image)
+# image = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+# cv2.imwrite("results/output_tresh.png", image)
 # print(r,g,b)
 # print(master.mode)
