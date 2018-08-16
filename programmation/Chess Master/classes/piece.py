@@ -15,5 +15,17 @@ class Piece(ABC):
     def type(self):
         pass
     @abstractmethod
-    def squaresAvailableFromTarget(self, piece=None):
+    def getPermutations(self):
         pass
+    def squaresAvailableFromTarget(self, piece=None, stopAtFirst=False):
+        origin = piece.square if piece else self.square
+        squares = []
+        for x,y in self.getPermutations():
+            x += origin.x # axis NW/SE
+            y += origin.y
+            if (x,y) == (origin.x,origin.y): continue # don't include self
+            if 0 <= x <= 7 and  0 <= y <= 7:
+                squares.append(Square(x, y))
+                if stopAtFirst:
+                    return squares[0]
+        return squares
