@@ -13,9 +13,17 @@ from classes.king import King
 # target is black (top A-H 6-7)
 # code is be 0-indexed but toString version is 1-indexed and uses letters for abscissas
 
+def createFromString(s):
+    s = s.lower()
+    if s == "pion": return Pawn()
+    if s == "cavalier": return Knight()
+    if s == "fou": return Bishop()
+    if s == "tour": return Rook()
+    if s == "dame": return Queen()
+
 target = King(0,4)
 print(target)
-b = Queen()
+b = createFromString("Cavalier")
 b.moveToNotation("D4")
 print(b)
 for square in b.squaresAvailableFromTarget():
