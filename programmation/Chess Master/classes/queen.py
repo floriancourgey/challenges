@@ -7,11 +7,13 @@ from .square import Square
 
 class Queen(Piece):
     def type(self):
-        return "t"
-    def getPermutations(self):
+        return "d"
+    def getPermutationsCapture(self):
         couples = []
         b = Bishop()
         r = Rook()
-        for x in b.getPermutations(): couples.append(x)
-        for x in r.getPermutations(): couples.append(x)
+        for x in b.getPermutationsCapture(): couples.append(x)
+        for x in r.getPermutationsCapture(): couples.append(x)
         return couples
+    def getPermutationsMove(self):
+        return self.getPermutationsCapture()

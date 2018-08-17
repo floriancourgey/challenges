@@ -6,7 +6,7 @@ from itertools import permutations
 class Knight(Piece):
     def type(self):
         return "c"
-    def getPermutations(self):
+    def getPermutationsCapture(self):
         couples = []
         for x,y in permutations([-2,-1,1,2], 2): # [(-2,-2), (-2,-2), (-2,1)...]
             # remove (2,2) and (1,1), so we have:
@@ -15,3 +15,5 @@ class Knight(Piece):
                 continue
             couples.append((x,y))
         return couples
+    def getPermutationsMove(self):
+        return self.getPermutationsCapture()

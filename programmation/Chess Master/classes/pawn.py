@@ -4,6 +4,8 @@ from .piece import Piece
 
 class Pawn(Piece):
     def type(self):
-        return "t"
-    def getPermutations(self):
-        return [(-1,1), (1,1)] # attach only
+        return "p"
+    def getPermutationsCapture(self):
+        return [(-1,1), (1,1)]
+    def getPermutationsMove(self):
+        return [(0,1)]
