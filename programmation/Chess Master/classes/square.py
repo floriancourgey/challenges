@@ -8,4 +8,7 @@ class Square:
         self.x, self.y = x, y
         self.letters = 'ABCDEFGH'
     def __str__(self):
-        return self.letters[self.x]+str(self.y+1);
+        return self.letters[self.x]+str(self.y+1)
+    ''' 2 squares are equal is they have the same (x,y) '''
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
