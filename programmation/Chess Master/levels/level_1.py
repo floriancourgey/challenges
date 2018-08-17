@@ -6,7 +6,7 @@ class Level_1:
         print('Level 1 init for target=',target,' and attacker=', attacker)
         self.target, self.attacker = target, attacker
     def solve(self):
-        solution = self.attacker.squaresAvailableFromTarget(self.target, True)
+        solution = self.attacker.capturesAvailableToTarget(self.target, [], True)
         print('Level 1 solved with solution ', solution)
         self.attacker.square.x, self.attacker.square.y = solution.x, solution.y;
         return self.attacker
