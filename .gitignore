@@ -6,3 +6,5 @@ config.py
 .DS_Store
 !fonctions.py
 **/fonctions.py
+results/*
+!.gitkeep
