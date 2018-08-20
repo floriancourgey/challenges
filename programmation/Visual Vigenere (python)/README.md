@@ -1,5 +1,4 @@
 - Get PNG Signature from https://fr.wikipedia.org/wiki/Portable_Network_Graphics (89 50 4E 47 0D 0A 1A 0A)
-- Download test file from https://www.newbiecontest.org/epreuves/prog/prog11/imgcrypted.png.
 - Open it in an hex editor, e.g. HexEdit
 - Look for the Signature (89 50 4E 47 0D 0A 1A 0A), find the 3 PNGs:
 - Extract the second one:

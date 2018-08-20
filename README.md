@@ -1,6 +1,4 @@
-# newbiecontest
-Help for https://www.newbiecontest.org/
-
+# challenges
 Help is provided with different languages. Quick readme for each of them:
 
 ## Java

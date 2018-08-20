@@ -52,7 +52,7 @@ if solution(dossiers) != 'f5d1733a19d66c3d4d42b84433804b33':
     print('algo de sort invalide')
     exit(-1)
 
-urlBase = "https://www.newbiecontest.org/epreuves/prog/"
+urlBase = URL
 urlEnonce = urlBase+"progcrawlme.php"
 urlValidation = urlBase+"verifprogcrawlme.php?md5="
 regex = r'href="([\w\/\.\d]+)"'

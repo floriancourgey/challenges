@@ -1,6 +1,6 @@
 <?php
 require_once('context.php');
-$retour = file_get_contents("http://www.newbiecontest.org/epreuves/prog/prog5.php", false, $context) ;
+$retour = file_get_contents(URL, false, $context) ;
 var_dump($retour);
 preg_match("/'(.*)' <br/", $retour, $texte);
 preg_match("/clef est : '(.*)'/", $retour, $cle);
@@ -16,4 +16,4 @@ for ($i=0; $i<strlen($texte); $i++){
 }
 // exit();
 var_dump($y);
-echo file_get_contents('http://www.newbiecontest.org/epreuves/prog/verifpr5.php?solution='.$y, false, $context);
+echo file_get_contents(URL.$y, false, $context);

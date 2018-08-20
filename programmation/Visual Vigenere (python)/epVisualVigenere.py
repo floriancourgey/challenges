@@ -11,7 +11,7 @@ pngSignature = b'\x89\x50\x4E\x47'
 f = open('original/imgcrypted.png', 'rb')
 bin_data = f.read()
 # online
-# r = requests.get('https://www.newbiecontest.org/epreuves/prog/prog11.php', cookies={'SMFCookie89':config.COOKIE})
+# r = requests.get(URL:config.COOKIE})
 # with open('results/file.png', "wb") as local_file:
 #     local_file.write(r.content)
 # split whole file by PNG signature

@@ -7,7 +7,7 @@ import os
 import pefile
 # opener = urllib2.build_opener()
 # opener.addheaders.append(('Cookie', config.COOKIE))
-# url = 'https://www.newbiecontest.org/epreuves/prog/prog_crackmefast.php'
+# url = URL
 # f = opener.open(url)#.read()
 # with open('./crackeme.exe', "wb") as local_file:
 #     local_file.write(f.read())

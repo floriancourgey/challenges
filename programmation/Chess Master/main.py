@@ -34,7 +34,7 @@ def createFromString(s):
     if s == "tour": return Rook()
     if s == "dame": return Queen()
 
-l1url = 'https://www.newbiecontest.org/epreuves/prog/prog_chessmaster1.php'
+l1url = URL
 l1regex = re.compile('; en ([A-H][1-8])\..+<br\/>(\w+)<br')
 l2regex = re.compile('en ([A-H][1-8]) tout en.+>(\w+)<br\/><\/p>')
 l3regex = re.compile('en ([A-H][1-8]) .+ : <br/>(.+)<br/><\/p>')

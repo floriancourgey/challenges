@@ -1,6 +1,6 @@
 <?php
 require_once('context.php');
-$retour = file_get_contents("http://www.newbiecontest.org/epreuves/prog/prog9/epreuve9.php", false, $context);
+$retour = file_get_contents(URL, false, $context);
 print_r($retour);
 // PERSONNES
 preg_match('@<hr width="90%" />(.*)\..*<br><br>@s', $retour, $m);
@@ -75,4 +75,4 @@ foreach($personnes as $p){
 var_dump($max);
 
 // exit();
-echo file_get_contents('http://www.newbiecontest.org/epreuves/prog/prog9/verifpr9.php?prenom='.$max['nom'].'&prix='.$max['prix'], false, $context);
+echo file_get_contents(URL], false, $context);

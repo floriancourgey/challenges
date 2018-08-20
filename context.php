@@ -12,7 +12,7 @@
 <?php
 require_once "config.php";
 function get($relativeUrl){
-	$c = curl_init("http://www.newbiecontest.org/".$relativeUrl);
+	$c = curl_init(URL.$relativeUrl);
 	curl_setopt($c, CURLOPT_COOKIE, getCookies()) ;
 	curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
 	$retour = curl_exec ($c);
@@ -27,7 +27,7 @@ function post($relativeUrl, $array){
 	}
 	rtrim($fields_string, '&');
 
-	$c = curl_init("http://www.newbiecontest.org/".$relativeUrl);
+	$c = curl_init(URL.$relativeUrl);
 	curl_setopt($c, CURLOPT_POST, count($array));
 	curl_setopt($c, CURLOPT_POSTFIELDS, $fields_string);
 	curl_setopt($c, CURLOPT_COOKIE, getCookies()) ;

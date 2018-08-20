@@ -3,7 +3,7 @@ function e($t){
 	echo $t.'<br/>';
 }
 require_once('context.php');
-$retour = file_get_contents("http://www.newbiecontest.org/epreuves/prog/progsudoku.php", false, $context);
+$retour = file_get_contents(URL, false, $context);
 $retour = trim(preg_replace('/\s+/', ' ', $retour));
 print_r($retour);
 preg_match_all("/<td class=\"chiffe1?\">([0-9])<\/td>/", $retour, $m);
@@ -106,13 +106,13 @@ do{
 				$y .= '-';
 		}
 		e('url '.$y);
-		echo file_get_contents('http://www.newbiecontest.org/epreuves/prog/verifprsudoku.php?solution='.$y, false, $context);
+		echo file_get_contents(URL.$y, false, $context);
 	}
 }while($val_trouvee);
 
 
 exit();
-echo file_get_contents('http://www.newbiecontest.org/epreuves/prog/verifprsudoku.php?solution='.$y, false, $context);
+echo file_get_contents(URL.$y, false, $context);
 
 
 function htmlToObject($table){

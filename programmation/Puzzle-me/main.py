@@ -13,8 +13,8 @@ import StringIO
 import config
 import time
 
-urlPuzzle = 'https://www.newbiecontest.org/epreuves/prog/prog15.php'
-urlValidation = 'https://www.newbiecontest.org/epreuves/prog/verifpr15.php?chaine='
+urlPuzzle = URL
+urlValidation = URL
 
 # ouverture puzzle
 opener = urllib2.build_opener()

@@ -66,7 +66,7 @@ function String2Hex($string){
 }
 $nom = "epApprenonsALire.png";
 require_once('context.php');
-$retour = file_get_contents("http://www.newbiecontest.org/epreuves/prog/prog10.php", false, $context);
+$retour = file_get_contents(URL, false, $context);
 $binary = @hex2bin(String2Hex($retour));
 file_put_contents($nom, $retour);
 $file = imagecreatefrompng($nom);
@@ -240,4 +240,4 @@ for ($i=0; $i < count($lignes); $i++) {
 var_dump( $y);
 if(strlen($y) == 6)
 // exit();
-echo file_get_contents('http://www.newbiecontest.org/epreuves/prog/verifpr10.php?chaine='.$y, false, $context);
+echo file_get_contents(URL.$y, false, $context);

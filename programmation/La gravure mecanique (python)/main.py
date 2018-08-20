@@ -20,7 +20,7 @@ regex = "(?P<g0>G0)?(?P<g1>G1)?(?P<g52>G52)?(X(?P<x>[\-\d\.]+))?(Y(?P<y>[\-\d\.]
 # online
 print('Downloading Gcode')
 filename = 'results/file.gcode'
-r = requests.get('https://www.newbiecontest.org/epreuves/prog/proggravure.php', cookies={'SMFCookie89':config.COOKIE})
+r = requests.get(URL:config.COOKIE})
 print('Challenge started')
 text_data = r.text
 with open(filename, 'w') as local_file:
@@ -141,7 +141,7 @@ decoded = pytesseract.image_to_string(filename+'.pil.png', lang='eng', config=''
 decoded = decoded.replace(' ', '').replace('|', ']')
 print(decoded)
 
-url = 'https://www.newbiecontest.org/epreuves/prog/verifprgravure.php?solution='+decoded
+url = URL+decoded
 print('Calling '+url)
 r = requests.get(url, cookies={'SMFCookie89':config.COOKIE})
 print(r.text)

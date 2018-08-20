@@ -22,7 +22,7 @@ def post(url, data):
 
 # constantes
 cookies = {config.COOKIE_KEY:config.COOKIE_VALUE}
-urlBase = 'https://www.newbiecontest.org/epreuves/prog/frok-fichus_nb/'
+urlBase = URL
 urlProg1 = urlBase+'prog_1.php'
 urlProg1Validation = urlBase+'verif_1.php'
 urlProg2 = urlBase+'prog_2.php'

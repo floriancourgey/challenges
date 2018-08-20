@@ -1,6 +1,6 @@
 <?php
 require_once('context.php');
-$retour = file_get_contents("http://www.newbiecontest.org/epreuves/prog/prog6.php", false, $context);
+$retour = file_get_contents(URL, false, $context);
 $retour=preg_split("@:<br />@", $retour)[1];
 var_dump($retour);
 preg_match("/(.{1,2})x² [+,-] (.{1,2})x [+,-] (.{1,2}) = 0/", $retour, $m);
@@ -14,4 +14,4 @@ $x2 = ($b + sqrt($delta))/(2*$a);
 $y = ($x1 > $x2) ? $x1 : $x2;
 $y = number_format($y, 2);
 // exit();
-echo file_get_contents('http://www.newbiecontest.org/epreuves/prog/verifpr6.php?solution='.$y, false, $context);
+echo file_get_contents(URL.$y, false, $context);
