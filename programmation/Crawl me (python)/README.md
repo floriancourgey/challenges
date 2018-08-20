@@ -5,45 +5,45 @@ retourne
 ```
 === LANCEMENT CRAWL ===
 |
--crawlme/rigt7A4Rw     (https://www.newbiecontest.org/epreuves/prog/progcrawlme.php)
+-crawlme/rigt7A4Rw     (URL)
    |
-   -7xA54H/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/)
+   -7xA54H/     (URL)
    |
-   -AIEbsNi4v/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/)
+   -AIEbsNi4v/     (URL)
       |
-      -Lu4Ve7I5O/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/AIEbsNi4v/)
+      -Lu4Ve7I5O/     (URL)
          |
-         -VzsAYTMH/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/AIEbsNi4v/Lu4Ve7I5O/)
+         -VzsAYTMH/     (URL)
             |
-            -RMuKPObTt/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/AIEbsNi4v/Lu4Ve7I5O/VzsAYTMH/)
+            -RMuKPObTt/     (URL)
    |
-   -IxpAYy/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/)
+   -IxpAYy/     (URL)
    |
-   -i65NVEy/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/)
+   -i65NVEy/     (URL)
       |
-      -BzAmqgEfC/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/i65NVEy/)
+      -BzAmqgEfC/     (URL)
       |
-      -TNyJb85/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/i65NVEy/)
+      -TNyJb85/     (URL)
          |
-         -Qpj01V/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/i65NVEy/TNyJb85/)
+         -Qpj01V/     (URL)
             |
-            -qoTOzC/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/i65NVEy/TNyJb85/Qpj01V/)
+            -qoTOzC/     (URL)
          |
-         -SzlJp9R/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/i65NVEy/TNyJb85/)
+         -SzlJp9R/     (URL)
             |
-            -0UPqRXB/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/i65NVEy/TNyJb85/SzlJp9R/)
+            -0UPqRXB/     (URL)
    |
-   -t1udn20/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/)
+   -t1udn20/     (URL)
    |
-   -uRp9aXfcV/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/)
+   -uRp9aXfcV/     (URL)
    |
-   -yLTtG1DHu/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/)
+   -yLTtG1DHu/     (URL)
       |
-      -TqiCFrXVy/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/yLTtG1DHu/)
+      -TqiCFrXVy/     (URL)
       |
-      -oUJYCd/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/yLTtG1DHu/)
+      -oUJYCd/     (URL)
          |
-         -s86Tq0zjN/     (https://www.newbiecontest.org/epreuves/prog/crawlme/rigt7A4Rw/yLTtG1DHu/oUJYCd/)
+         -s86Tq0zjN/     (URL)
 === 20 dossiers ===
 ['rigt7A4Rw', '7xA54H', 'AIEbsNi4v', 'Lu4Ve7I5O', 'VzsAYTMH', 'RMuKPObTt', 'IxpAYy', 'i65NVEy', 'BzAmqgEfC', 'TNyJb85', 'Qpj01V', 'qoTOzC', 'SzlJp9R', '0UPqRXB', 't1udn20', 'uRp9aXfcV', 'yLTtG1DHu', 'TqiCFrXVy', 'oUJYCd', 's86Tq0zjN']
 === dossiers ordonnés ===
@@ -51,6 +51,6 @@ retourne
 === md5 ===
 cc08a168b82af137129d1fcb5aeb900d
 === envoi solution ===
-Appel https://www.newbiecontest.org/epreuves/prog/verifprogcrawlme.php?md5=cc08a168b82af137129d1fcb5aeb900d au bout de 17.7138381004s
+Appel ?md5=cc08a168b82af137129d1fcb5aeb900d au bout de 17.7138381004s
 Bravo ! Le mot de passe pour cette &eacute;preuve est XXXXX
 ```
