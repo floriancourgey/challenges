@@ -76,7 +76,7 @@ foreach ($anagrammes as $anagramme) {
 // curl_setopt($curl_instance, CURLOPT_URL, URL) ;
 // curl_setopt($curl_instance, CURLOPT_POST, count($anagrammes));
 // curl_setopt($curl_instance, CURLOPT_POSTFIELDS, $fields_string);
-// curl_setopt($curl_instance, CURLOPT_COOKIE, "SMFCookie89=a%3A4%3A%7Bi%3A0%3Bs%3A5%3A%2255733%22%3Bi%3A1%3Bs%3A40%3A%229d7f3bfccaa88609c97b73c31412f1e409c9d541%22%3Bi%3A2%3Bi%3A1612301728%3Bi%3A3%3Bi%3A0%3B%7D") ;
+// curl_setopt($curl_instance, CURLOPT_COOKIE, "Cookie=a%3A4%3A%7Bi%3A0%3Bs%3A5%3A%2255733%22%3Bi%3A1%3Bs%3A40%3A%229d7f3bfccaa88609c97b73c31412f1e409c9d541%22%3Bi%3A2%3Bi%3A1612301728%3Bi%3A3%3Bi%3A0%3B%7D") ;
 // curl_setopt($curl_instance, CURLOPT_RETURNTRANSFER, 1);
 // $retour = curl_exec ($curl_instance);
 $retour = post("epreuves/prog/frok-fichus_nb/verif_1.php", $anagrammesDecodes);

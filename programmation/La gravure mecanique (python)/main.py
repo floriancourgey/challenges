@@ -143,7 +143,7 @@ print(decoded)
 
 url = URL+decoded
 print('Calling '+url)
-r = requests.get(url, cookies={'SMFCookie89':config.COOKIE})
+r = requests.get(url, cookies={'Cookie':config.COOKIE})
 print(r.text)
 
 print('Showing image')

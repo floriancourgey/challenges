@@ -38,7 +38,7 @@ function post($relativeUrl, $array){
 }
 
 function getCookies(){
-	$cookies = "SMFCookie89=".SMFCookie89.";";
+	$cookies = "Cookie=".Cookie.";";
 	if(defined(PHPSESSID)){
 		$cookies .= "PHPSESSID=".PHPSESSID;
 	}

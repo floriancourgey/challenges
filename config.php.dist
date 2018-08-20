@@ -1,3 +1,3 @@
 <?php
-define("SMFCookie89", "**");
+define("Cookie", "**");
 define("PHPSESSID", "**");

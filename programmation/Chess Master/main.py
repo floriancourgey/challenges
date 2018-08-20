@@ -23,7 +23,7 @@ from levels.level_3 import Level_3
 
 def callNC(url):
     print('Calling URL:', url)
-    r = requests.get(url, cookies={'SMFCookie89':config.COOKIE})
+    r = requests.get(url, cookies={'Cookie':config.COOKIE})
     return r.text
 
 def createFromString(s):
