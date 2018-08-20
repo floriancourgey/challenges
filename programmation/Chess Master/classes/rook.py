@@ -3,8 +3,10 @@
 from .piece import Piece
 
 class Rook(Piece):
-    def type(self):
-        return "t"
+    typeFull = 'Tour'
+    typeShort = 't'
+    canPerpendicular = True
+    value = 5
     def getPermutationsCapture(self):
         # axis      W/E      +         N/S
         x = list(range(-7, 8)) + ([0] * 15)

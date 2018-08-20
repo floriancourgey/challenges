@@ -3,8 +3,9 @@
 from .piece import Piece
 
 class Bishop(Piece):
-    def type(self):
-        return "f"
+    typeFull = 'Fou'
+    typeShort = 'f'
+    value = 3.5
     def getPermutationsCapture(self):
         # axis      SW/NE      +         NW/SE
         x = list(range(-7, 8)) + list(range(-7, 8))

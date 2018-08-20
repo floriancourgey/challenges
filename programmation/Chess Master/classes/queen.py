@@ -6,8 +6,10 @@ from .bishop import Bishop
 from .square import Square
 
 class Queen(Piece):
-    def type(self):
-        return "d"
+    typeFull = 'Dame'
+    typeShort = 'd'
+    canPerpendicular = True
+    value = 9
     def getPermutationsCapture(self):
         couples = []
         b = Bishop()

@@ -3,8 +3,9 @@
 from .piece import Piece
 
 class Pawn(Piece):
-    def type(self):
-        return "p"
+    typeFull = 'Pion'
+    typeShort = 'p'
+    value = 1
     def getPermutationsCapture(self):
         return [(-1,1), (1,1)]
     def getPermutationsMove(self):
