@@ -2,15 +2,19 @@
 Help is provided with different languages. Quick readme for each of them:
 
 ## Python (updated content)
-Each folder contains a `config.py.dist` meant to be duplicated to `config.py`. Then, store your Cookie value in the provided constant.
+Root folder contains a `config.py.dist` meant to be duplicated to `config.py`. Then, store your Cookie value in the provided constant.
 
-Python 2 and 3 are used.
+Python 3.5+ is preferred.
 
 New Python files should start with
 ```python
 #! /usr/bin/env python3
 # coding: utf-8
-import config
+import sys
+sys.path.insert(0, '../..')
+from config import *
+from functions import *
+get(URLS['prog']['_langage-tester']) // https:///
 ```
 
 PIP install
