@@ -1,0 +1,8 @@
+Level 3 data: Target	G7	attackers	Tour Tour
+Level 3 data: Target	F7	attackers	Tour Fou Fou
+Level 3 data: Target	B7	attackers	Dame Fou Fou
+Level 3 data: Target	B7	attackers	Tour Cavalier Fou
+Level 3 data: Target	C7	attackers	Dame Tour
+Level 3 data: Target	G3	attackers	Dame Fou Fou Cavalier
+Level 3 data: Target	G2	attackers	Tour Fou Cavalier
+Level 3 data: Target	D7	attackers	Tour Tour Cavalier
