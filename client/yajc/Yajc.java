@@ -1,4 +1,4 @@
-package epYetAnotherJavaChallenge;
+package yajc;
 
 import java.applet.Applet;
 import java.awt.Button;
@@ -12,9 +12,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Yajc extends Applet implements ActionListener{
-	
+
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 5049590336206846566L;
 	private Button SubmitButton;
@@ -22,9 +22,9 @@ public class Yajc extends Applet implements ActionListener{
 	private Label PasswordLabel;
 	private Label resultLabel;
 	private Credentials credentials;
-  
+
   public void stop() {}
-  
+
   public Yajc()
   {
 	  System.out.println("Applet lancée");
@@ -38,9 +38,9 @@ public class Yajc extends Applet implements ActionListener{
     this.PasswordLabel = new Label();
     this.resultLabel = new Label();
   }
-  
+
   public void destroy() {}
-  
+
   public void actionPerformed(ActionEvent paramActionEvent)
   {
     String str1 = encrypt(this.PasswordField.getText());
@@ -63,9 +63,9 @@ public class Yajc extends Applet implements ActionListener{
       this.resultLabel.setText("Eh non...");
     }
   }
-  
+
   public void start() {}
-  
+
   public void init()
   {
     setLayout(null);
@@ -83,7 +83,7 @@ public class Yajc extends Applet implements ActionListener{
     add(this.SubmitButton);
     add(this.resultLabel);
   }
-  
+
   public String encrypt(String paramString)
   {
     String str = new String("");
@@ -92,7 +92,7 @@ public class Yajc extends Applet implements ActionListener{
     }
     return str;
   }
-  
+
   public Object loadCredentials(URL paramURL)
   {
     Object localObject = null;
