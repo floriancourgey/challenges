@@ -18,4 +18,3 @@ for c in s:
 
 print(mot)
 print(mot2)
-print("POUR VALIDER ENTREZ GOZILLA")
