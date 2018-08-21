@@ -12,7 +12,7 @@ public class epIrcCaesar {
         bot.connect("irc.worldnet.net");
 
         // Join the #pircbot channel.
-        bot.joinChannel("#nc-irc-challs");
+        bot.joinChannel("#acme-irc-challs");
 	}
 	
 	public class MyBot extends PircBot {

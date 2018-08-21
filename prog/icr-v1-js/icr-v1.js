@@ -1,6 +1,6 @@
 var irc = require('irc');
 var client = new irc.Client('irc.worldnet.net', 'dfghjklertyui', {
-    channels: ['#nc-irc-challs'],
+    channels: ['#acme-irc-challs'],
 });
 client.say("NickServ ", "identify dfghjklertyui");
 client.addListener('error', function(message) {
@@ -9,7 +9,7 @@ client.addListener('error', function(message) {
 client.addListener('message', function (from, to, message) {
     console.log(from + ' => ' + to + ': ' + message);
 });
-client.join("#nc-irc-challs", function(){
+client.join("#acme-irc-challs", function(){
     console.log("Je suis connecté !");
-    client.say('#nc-irc-challs', "I'm a bot!");
+    client.say('#acme-irc-challs', "I'm a bot!");
 })

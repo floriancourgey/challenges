@@ -9,7 +9,7 @@ $host = "irc.worldnet.net";
 $port=6667;
 $nick="dabobot"; // change to something unique. this aint gonna try twice.
 $ident="mybot";
-$chan="#nc-irc-challs";
+$chan="#acme-irc-challs";
 $realname = "ima bobot";
 
 
