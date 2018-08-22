@@ -14,7 +14,7 @@ import sys
 sys.path.insert(0, '../..')
 from config import *
 from functions import *
-get(URLS['prog']['_langage-tester']) // https:///
+get(URLS['prog']['_langage-tester']) # https://
 ```
 
 PIP install
