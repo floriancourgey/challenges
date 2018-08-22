@@ -5,9 +5,10 @@ COOKIE_VAL = ''
 COOKIE = COOKIE_KEY+'='+COOKIE_VAL
 URLS = {
     'prog':{
-    '_langage-tester': {
+        '_langage-tester': {
             'problem':'https://',
             'solution':'https://',
-        }
+        },
+        'chess-master': 'https://',
     }
 }

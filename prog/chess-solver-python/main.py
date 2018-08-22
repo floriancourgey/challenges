@@ -1,6 +1,9 @@
 #! /usr/bin/env python3
 # coding: utf-8
-import config
+import sys
+sys.path.insert(0, '../..')
+from config import *
+from functions import *
 import re
 import time
 import requests
@@ -21,11 +24,6 @@ from levels.level_3 import Level_3
 # target is black (top A-H 6-7)
 # code is be 0-indexed but toString version is 1-indexed and uses letters for abscissas
 
-def callNC(url):
-    print('Calling URL:', url)
-    r = requests.get(url, cookies={'Cookie':config.COOKIE})
-    return r.text
-
 def createFromString(s):
     s = s.lower().replace(' ', '')
     if s == "pion": return Pawn()
@@ -34,38 +32,41 @@ def createFromString(s):
     if s == "tour": return Rook()
     if s == "dame": return Queen()
 
-l1url = URL
+l1url = URLS['prog']['chess-master']
 l1regex = re.compile('; en ([A-H][1-8])\..+<br\/>(\w+)<br')
 l2regex = re.compile('en ([A-H][1-8]) tout en.+>(\w+)<br\/><\/p>')
 l3regex = re.compile('en ([A-H][1-8]) .+ : <br/>(.+)<br/><\/p>')
 
 target = King()
 
-l1data = callNC(l1url)
+l1data = get(l1url)
 m = l1regex.search(l1data)
 if not m:
+    print(l1data)
     exit('Level 1 error')
 print('Level 1 data: Target', m.group(1), ', attacker', m.group(2))
 target.moveToNotation(m.group(1))
 attacker = createFromString(m.group(2))
 l1 = Level_1(target, attacker)
 solution = l1.solve()
-l2data = callNC(l1url+'?struct='+str(solution))
+l2data = get(l1url+'?struct='+str(solution))
 # print(l2data)
 # LEVEL 2
 m = l2regex.search(l2data)
 if not m:
+    print(l2data)
     exit('Level 2 error')
 print('Level 2 data: Target', m.group(1), ', attacker', m.group(2))
 target.moveToNotation(m.group(1))
 attacker = createFromString(m.group(2))
 l2 = Level_2(target, attacker)
 solution = l2.solve()
-l3data = callNC(l1url+'?struct='+str(solution[0])+str(solution[1]))
+l3data = get(l1url+'?struct='+str(solution[0])+str(solution[1]))
 print(l3data)
 # LEVEL 3
 m = l3regex.search(l3data)
 if not m:
+    print(l3data)
     exit('Level 3 error')
 attackers = []
 sAttackers = m.group(2).split('<br/>')
@@ -80,5 +81,5 @@ with open("results.txt", "a") as myfile:
 # attackers = [createFromString(m.group(2)), createFromString(m.group(3)), createFromString(m.group(4))]
 # l3 = Level_3(target, attackers)
 # solution = l3.solve()
-# l4data = callNC(l1url+'?struct='+str(solution[0])+str(solution[1])+str(solution[2]))
+# l4data = get(l1url+'?struct='+str(solution[0])+str(solution[1])+str(solution[2]))
 # print(l4data)
