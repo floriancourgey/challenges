@@ -44,7 +44,6 @@ m = l1regex.search(l1data)
 if not m:
     print(l1data)
     exit('Level 1 error')
-print('Level 1 data: Target', m.group(1), ', attacker', m.group(2))
 target.moveToNotation(m.group(1))
 attacker = createFromString(m.group(2))
 l1 = Level_1(target, [attacker])
@@ -56,13 +55,12 @@ m = l2regex.search(l2data)
 if not m:
     print(l2data)
     exit('Level 2 error')
-print('Level 2 data: Target', m.group(1), ', attacker', m.group(2))
 target.moveToNotation(m.group(1))
 attacker = createFromString(m.group(2))
 l2 = Level_2(target, [attacker])
 solution = l2.solve()
 l3data = get(l1url+'?struct='+str(solution[0])+str(solution[1]))
-print(l3data)
+print(l3data[-250:])
 # LEVEL 3
 m = l3regex.search(l3data)
 if not m:
@@ -73,9 +71,8 @@ sAttackers = m.group(2).split('<br/>')
 for sAttacker in sAttackers:
     attackers.append(createFromString(sAttacker))
 attackers = sorted(attackers, key=lambda x: x.value, reverse=True)
-print('Level 3 data: Target', m.group(1), '- attackers:',attackers)
 target.moveToNotation(m.group(1))
-with open("results.txt", "a") as myfile:
+with open("samples/level_3_data.txt", "a") as myfile:
     myfile.write('Level 3 data: Target\t'+m.group(1)+'\tattackers\t'+' '.join(list(map(lambda x:x.typeFull, attackers)))+'\n')
 
 l3 = Level_3(target, attackers)
