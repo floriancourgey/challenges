@@ -1,12 +1,12 @@
 #! /usr/bin/env python3
 # coding: utf-8
+from levels.level import Level
+from classes.square import Square
 
-class Level_1:
-    def __init__(self, target, attacker):
-        print('Level 1 init for target=',target,'and attacker=', attacker)
-        self.target, self.attacker = target, attacker
+class Level_1(Level):
     def solve(self):
-        solution = self.attacker.capturesAvailableToTarget(self.target.square, [], True)
+        attacker = self.attackers[0]
+        solution = attacker.capturesAvailableToTarget(self.target.square, [], True)
         print('Level 1 solved with solution ', solution)
-        self.attacker.square.x, self.attacker.square.y = solution.x, solution.y;
-        return self.attacker
+        attacker.square = Square(solution.x, solution.y);
+        return attacker

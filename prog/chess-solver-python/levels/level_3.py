@@ -1,12 +1,41 @@
 #! /usr/bin/env python3
 # coding: utf-8
+from levels.level import Level
 from classes.square import Square
+from classes.queen import Queen
+from classes.rook import Rook
+from classes.bishop import Bishop
+from classes.knight import Knight
 
-class Level_3:
+class Level_3(Level):
     def __init__(self, target, attackers):
         print('Level 3 init for target=',target)
         self.target, self.attackers = target, attackers
+
     def solve(self):
+        # define which solver to use
+        # result = [x for x in self.attackers if x.canPerpendicular]
+        if self.has(Queen):
+            return self.solveWithOneQueen()
+        elif self.nbPerpendicular() > 1:
+            return self.solveWithTwoPerpendiculars()
+        elif self.nbOf(Rook)>0 and self.nbOf(Bishop)>0 and self.nbOf(Knight)>0:
+            return self.solveWithRookBishopKnight()
+        exit('not yet solved')
+
+    ''' 1 queen + anything '''
+    def solveWithOneQueen(self):
+        print('solveWithOneQueen')
+
+    ''' 2 queens / queen+rook / 2 rooks '''
+    def solveWithTwoPerpendiculars(self):
+        print('solveWithTwoPerpendiculars')
+
+    ''' Rook+Bishop+Knight '''
+    def solveWithRookBishopKnight(self):
+        print('solveWithRookBishopKnight')
+        
+    def old(self):
         # find perpendicular
         perpendicular = None
         for attacker in self.attackers:
