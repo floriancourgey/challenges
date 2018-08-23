@@ -1,0 +1,2 @@
+Level 4 data: Target	D6	attackers	Cavalier
+Level 4 data: Target	F4	attackers	Cavalier
