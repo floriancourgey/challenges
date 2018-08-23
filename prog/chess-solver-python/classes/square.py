@@ -9,6 +9,24 @@ class Square:
         self.letters = 'ABCDEFGH'
     def toTuple(self):
         return self.x, self.y
+    def rot90(self, k=1):
+        new = Square(self.x, self.y)
+        for i in range(k):
+            x = new.y
+            y = -new.x
+            new.x, new.y = x, y
+        return new
+    def rot90ForDirection(self, direction):
+        if direction == 'N': k=0;
+        elif direction == 'E': k=1;
+        elif direction == 'S': k=2;
+        elif direction == 'W': k=3;
+        return self.rot90(k)
+    def rot90from(square):
+        x = -(self.y - square.y) + square.x
+        y = (self.x - square.px) + square.py
+        self.x, self.y = x, y
+        return self
     def __str__(self):
         return self.letters[self.x]+str(self.y+1)
     ''' 2 squares are equal is they have the same (x,y) '''
@@ -18,3 +36,5 @@ class Square:
         return Square(self.x+other.x, self.y+other.y)
     def __sub__(self, other):
         return Square(self.x-other.x, self.y-other.y)
+    def __mul__(self, other):
+        return Square(self.x*other, self.y*other)
