@@ -11,7 +11,7 @@ class Level_3(Level):
     def __init__(self, target, attackers):
         print('Level 3 init for target=',target)
         self.target, self.attackers = target, attackers
-
+        self.closest = self.getClosestSideFrom(self.target) # closest side (N,E..)
     def solve(self):
         # define which solver to use
         # result = [x for x in self.attackers if x.canPerpendicular]
@@ -34,7 +34,7 @@ class Level_3(Level):
     ''' Rook+Bishop+Knight '''
     def solveWithRookBishopKnight(self):
         print('solveWithRookBishopKnight')
-        
+
     def old(self):
         # find perpendicular
         perpendicular = None
@@ -49,9 +49,7 @@ class Level_3(Level):
         blacklist = self.target.movesAvailable()
         blacklist.append(self.target.square)
         # find closest side (N, E, S, W)
-        directions = {'N':7-self.target.square.y, 'E':7-self.target.square.x,
-                      'S':self.target.square.y, 'W':self.target.square.x}
-        closest = min(directions, key=directions.get)
+        closest = self.getClosestSideFrom(self.target)
         # define perpendicular squares (P) (absolute coord)
         if closest == 'N':
             pSquaresAbs = [(-1,-1), (0,-1), (1,-1)]
