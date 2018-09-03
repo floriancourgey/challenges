@@ -38,7 +38,7 @@ class OcrMonotype:
         for yLetter in range(0, self.Y_NB_LETTERS):
             self.linesOfMatrices.append([])
             y = self.Y_ORIGIN+ yLetter*(self.Y_LTR+self.Y_MARGIN)
-            print('* y origin of line '+str(yLetter)+': '+str(y))
+            print('* New line n°'+str(yLetter)+' found with y origin: '+str(y))
             # for each letter
             for xLetter in range(0, self.X_NB_LETTERS):
                 x = self.X_ORIGIN+ xLetter*self.X_LTR
@@ -104,7 +104,7 @@ class OcrMonotype:
             if i % (self.Y_LTR+1) == 0:
                 line = lines[i]
                 letter = line.strip()[0]
-                print('letter found: '+letter)
+                # print('letter found: '+letter)
                 # and add it to the dic, via a matrix of bits
                 if letter not in self.DIC:
                     matrix = []
@@ -113,13 +113,14 @@ class OcrMonotype:
                         for x in range(0, self.X_LTR):
                             matrix[y].append( lines[i+1+y][x] == self.DIC_1 )
                     self.DIC[letter] = matrix
+        print('OCR dic initialized with '+str(len(self.DIC))+' characters')
 
 # X_LTR, Y_LTR, X_ORIGIN, Y_ORIGIN, X_MARGIN, Y_MARGIN, dicoPath, addUnknownToDic
-ocr = OcrMonotype(8, 10, 5, 8, 0, 5, 'dico_8_10.txt', True)
+# ocr = OcrMonotype(8, 10, 5, 8, 0, 5, 'dico_8_10.txt', True)
 # ocr.loadFile("samples/2018-09-03T18:05:48.658980file.pngfinal.png")
 # ocr.loadFile("samples/2018-09-03T18:06:16.772015file.pngfinal.png")
 # ocr.loadFile("samples/2018-09-03T18:06:32.311478file.pngfinal.png")
 # ocr.loadFile("samples/2018-09-03T18:06:34.184826file.pngfinal.png")
-ocr.loadFile("samples/2018-09-03T18:06:36.096125file.pngfinal.png")
-result = ocr.compute()
-print(result)
+# ocr.loadFile("samples/2018-09-03T18:06:36.096125file.pngfinal.png")
+# result = ocr.compute()
+# print(result)

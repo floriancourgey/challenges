@@ -8,11 +8,19 @@ from PIL import Image, ImageFilter
 import config
 import cv2
 from datetime import datetime
+from OcrMonotype import OcrMonotype
+sys.path.insert(0, '../vigenere-python')
+from vigenere import Vigenere
 
 pngSignature = b'\x89\x50\x4E\x47'
 
-filename = 'samples/2018-09-03T18:06:36.096125file.png'
+# init OCR & its dic
+# X_LTR, Y_LTR, X_ORIGIN, Y_ORIGIN, X_MARGIN, Y_MARGIN, dicoPath, addUnknownToDic
+ocr = OcrMonotype(8, 10, 5, 8, 0, 5, 'dico_8_10.txt', True)
+
 # offline
+filename = 'samples/2018-09-03T18:06:36.096125file.png'
+print('Offline mode with file: '+filename)
 f = open(filename, 'rb')
 bin_data = f.read()
 # online
@@ -39,7 +47,8 @@ vertical = Image.open(filename+"1.png")
 horizontal = Image.open(filename+"2.png")
 # create output file, with the size of the master
 output = Image.new('RGB', master.size)
-output.save(filename+"final.png") # create black PNG file
+finalFilename = filename+"final.png"
+output.save(finalFilename) # create black PNG file
 pixels = output.load() # create the pixel map
 # for each pixel(x,y) in master
 for y in range(yMax):
@@ -58,9 +67,28 @@ for y in range(yMax):
             # write it
             # pixels[xNew,yNew] = (r, 0, 0)
             pixels[xNew,yNew] = (255, 255, 255)
-    # break
 
-output.save(filename+"final.png") # save pixels modification
+output.save(finalFilename) # save pixels modification
+
+# execute OCR
+ocr.loadFile(finalFilename)
+lines = ocr.compute()
+print('OCR data: ', lines)
+if len(lines) != 3:
+    raise Exception('OCR Unable to find 3 lines in OCR data')
+words = lines[0].split(' ')
+key = lines[1]
+index = int(lines[2][0])
+word = words[index-1]
+if len(lines) != 3:
+    raise Exception('OCR Unable to find word with index0 '+str(index-1)+' in line 1')
+print('Vigenere decypher for word: '+word, 'with key: '+key)
+vigenere = Vigenere(key)
+result = vigenere.decrypt(word)
+print('Vigenere result: '+result)
+
+html = get(config.URLS['prog']['ocr-v3']['solution']+'?solution='+result)
+print(html)
 
 # output2 = output.resize((xMax*5, yMax*5))
 # output2.save("results/output_5.png")
