@@ -3,7 +3,10 @@
 import requests
 import config
 
-def get(url):
+def get(url, returnRequests=False):
     print('functions | get URL ', url)
     r = requests.get(url, cookies={config.COOKIE_KEY:config.COOKIE_VAL})
-    return r.text
+    if returnRequests:
+        return r
+    else:
+        return r.text
