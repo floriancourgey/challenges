@@ -12,6 +12,7 @@ class Vigenere:
     def decrypt(self, s):
         return self.compute(s, 'decrypt')
     def compute(self, s, operation):
+        print('Vigenere:compute for '+operation+' of string "'+s+'" with key '+self.key)
         result = ''
         keyIndex = 0
         for char in s:
