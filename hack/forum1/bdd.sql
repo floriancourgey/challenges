@@ -6,6 +6,6 @@ CREATE TABLE `membres_hack` (
   `langue` varchar(100) collate latin1_general_ci NOT NULL,
   `admin` tinyint(1) NOT NULL default '0',
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM
+) ENGINE=MyISAM;
 
 INSERT INTO `membres_hack` VALUES (1, 'admin', 'admin', 'no@email.com', 'FR', 1);
