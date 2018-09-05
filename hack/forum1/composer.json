@@ -1,0 +1,11 @@
+{
+    "name": "challenges/forum1",
+    "require": {
+        "monolog/monolog": "^1.23"
+    },
+    "config": {
+        "platform": {
+            "php": "5.6"
+        }
+    }
+}
