@@ -1,0 +1,4 @@
+PerlSetVar AuthFile ep22/admin/.htpasswd
+AuthName "Acces Restreint"
+AuthType Basic
+require valid-user
