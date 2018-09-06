@@ -1,7 +1,5 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # coding: utf-8
-import urllib2
-import config
 # import re
 import os
 import pefile
@@ -14,19 +12,22 @@ import pefile
 
 pe =  pefile.PE('./crackeme.exe')
 
-print(pe.OPTIONAL_HEADER.AddressOfEntryPoint)
-print(pe.OPTIONAL_HEADER.ImageBase)
-print(pe.FILE_HEADER.NumberOfSections)
+print('AddressOfEntryPoint:', pe.OPTIONAL_HEADER.AddressOfEntryPoint)
+print('ImageBase:', pe.OPTIONAL_HEADER.ImageBase)
 
-for section in pe.sections:
-  print (section.Name, hex(section.VirtualAddress),
+print('NumberOfSections:', pe.FILE_HEADER.NumberOfSections)
+for i,section in enumerate(pe.sections):
+  print('Section '+str(i+1)+': ',section.Name, hex(section.VirtualAddress),
     hex(section.Misc_VirtualSize), section.SizeOfRawData )
 
-for entry in pe.DIRECTORY_ENTRY_IMPORT:
-  print entry.dll
+print('NumberOfDll:', len(pe.DIRECTORY_ENTRY_IMPORT))
+for i,entry in enumerate(pe.DIRECTORY_ENTRY_IMPORT):
+  print('DLL '+str(i+1)+': ',entry.dll)
   for imp in entry.imports:
-    print '\t', hex(imp.address), imp.name
+    print('\t', hex(imp.address), imp.name)
 
-print pe.dump_info()
+# print(pe.dump_info())
 
-print [entry.id for entry in pe.DIRECTORY_ENTRY_RESOURCE.entries]
+for exp in pe.DIRECTORY_ENTRY_EXPORT.symbols:
+  print(hex(pe.OPTIONAL_HEADER.ImageBase + exp.address), exp.name, exp.ordinal)
+# print([entry.id for entry in pe.DIRECTORY_ENTRY_RESOURCE.entries])
