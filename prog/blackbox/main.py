@@ -15,7 +15,7 @@ def printMatrix():
         for x in range(SIZE):
             print(matrix[y][x], end='')
         print()
-matrix = [[1 for x in range(SIZE)] for y in range(SIZE)] # create matrix of 1
+matrix = [['-' for x in range(SIZE)] for y in range(SIZE)] # create matrix of 1
 printMatrix()
 
 f = open('sample.txt', 'r')
@@ -27,8 +27,14 @@ for y,line in enumerate(lines):
     for x,char in enumerate(line):
         if char.isdigit():
             i = int(char)
-            xCoord = 0 if x == 0 else x-2
-            yCoord = 0 if y == 0 else y-2
+            # x
+            if x == 0: xCoord = 0
+            elif x >= SIZE: xCoord = SIZE-1
+            else: xCoord = x-1
+            # y
+            if y == 0: yCoord = 0
+            elif y >= SIZE: yCoord = SIZE-1
+            else: yCoord = y-1
             # if it doesn't exist, create Start
             if i not in rays:
                 rays[i] = {'start':(xCoord,yCoord)}
@@ -42,14 +48,16 @@ print('Number of rays:', len(rays))
 print(rays)
 # fill straight lines
 for i, ray in rays.items():
-    # vertical line if same x and y is border
-    if ray['start'][0] == ray['end'][0] and isBorder(ray['start'][1]) and isBorder(ray['end'][1]):
-        print('vertical line for ray', i, ray)
+    # vertical line if same x and y is border and y=SIZE-1
+    if ray['start'][0] == ray['end'][0] and isBorder(ray['start'][1]) and isBorder(ray['end'][1]) and ray['start'][1]+ray['end'][1] == SIZE-1:
+        # print('vertical line for ray', i, ray)
         for y in range(SIZE):
-            matrix[y][ray['start'][0]] = 0
+            matrix[y][ray['start'][0]] = i
+        ray['done'] = True
     # horizontal line if same y
-    if ray['start'][1] == ray['end'][1] and isBorder(ray['start'][0]) and isBorder(ray['end'][0]):
-        print('horizontal line for ray', i, ray)
+    if ray['start'][1] == ray['end'][1] and isBorder(ray['start'][0]) and isBorder(ray['end'][0]) and ray['start'][0]+ray['end'][0] == SIZE-1:
+        # print('horizontal line for ray', i, ray)
         for x in range(SIZE):
-            matrix[ray['start'][1]][x] = 0
+            matrix[ray['start'][1]][x] = i
+        ray['done'] = True
 printMatrix()
