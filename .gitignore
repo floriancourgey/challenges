@@ -8,3 +8,8 @@ config.py
 **/fonctions.py
 results/*
 !.gitkeep
+
+# Created by https://www.gitignore.io/api/python
+### Composer ###
+composer.phar
+vendor/
