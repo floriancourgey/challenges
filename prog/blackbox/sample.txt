@@ -1,0 +1,21 @@
+ 1HH23RHR
+1        R
+H        H
+R        R
+H        H
+R        4
+5        5
+6        6
+7        7
+ H4823H8H
+
+ 1HH23RHR
+1   oo   R
+H   oo   H
+R   oo   R
+H   oo   H
+R   oo   4
+5oooooooo5
+6oooooooo6
+7oooooooo7
+ H4823H8H
