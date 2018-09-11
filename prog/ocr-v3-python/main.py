@@ -25,7 +25,7 @@ ocr = OcrMonotype(8, 10, 5, 8, 0, 5, 'dico_8_10.txt', True)
 # bin_data = f.read()
 # online
 bin_data = get(config.URLS['prog']['ocr-v3']['problem'], True).content
-filename = 'results/'+datetime.now().isoformat()+'file.png'
+filename = 'results/'+datetime.now().isoformat().replace(':', '')+'file.png'
 with open(filename, "wb") as local_file:
     local_file.write(bin_data)
     print(filename+' ok')
