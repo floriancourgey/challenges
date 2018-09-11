@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<style>
+		table
+		{
+			border-collapse: collapse;
+		}
+		.map td, th
+		{
+			width : 30px;
+			height: 30px;
+			border: 1px solid black;
+			text-align: center;
+			font-size: 15px;
+		}
+
+		.menu td, th
+		{
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		.consos li
+		{
+			list-style-type:none;
+		}
+	</style>
+	<title>La tournée des bars</title>
+</head>
+<body>
+<h3>Carte de la ville</h3>
+<table class="map">
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">12</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">13</td>
+	<td class="lig">15</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">11</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">10</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">7</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">16</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">3</td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">5</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">2</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">1</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">8</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">14</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">6</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig">9</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig">4</td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+<tr class="col">
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+	<td class="lig"> </td>
+</tr>
+</table>
+<p>Gaston a commencé sa tournée dans le bar numéro <span class="bar_initial">5</span>.</p><h3>Liste des consommations</h3>
+<p>Voici ce qu'il a consommé, dans l'ordre :</p>
+<ul class="consos">
+	<li>rhum</li>
+	<li>gin</li>
+	<li>sangria</li>
+	<li>whisky</li>
+	<li>vin</li>
+	<li>vin</li>
+	<li>vodka</li>
+	<li>tequila</li>
+	<li>grog</li>
+	<li>tequila</li>
+	<li>vin</li>
+	<li>curaçao</li>
+	<li>tequila</li>
+	<li>whisky</li>
+	<li>bière</li>
+	<li>vodka</li>
+	<li>grog</li>
+	<li>whisky</li>
+	<li>tequila</li>
+	<li>rhum</li>
+	<li>gin</li>
+	<li>gin</li>
+	<li>bière</li>
+	<li>tequila</li>
+	<li>tequila</li>
+	<li>vin</li>
+	<li>vin</li>
+	<li>vodka</li>
+</ul>
+<h3>Cartes des boissons</h3>
+<p>Menu du bar numéro <span class="no_bar">1</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">3 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">15 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">3 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">15 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">5 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">2</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">3 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">3</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">11 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">15 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">17 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">6 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">4</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">11 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">11 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">16 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">4 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">5</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">12 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">12 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">13 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">2 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">6</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">13 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">15 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">7 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">7</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">14 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">11 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">15 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">2 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">8</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">13 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">15 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">3 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">2 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">9</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">6 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">10</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">3 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">13 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">1 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">11</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">13 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">5 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">12</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">1 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">14 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">16 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">13 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">3 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">13</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">3 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">3 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">14</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">13 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">9 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">4 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">15</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">14 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">2 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">11 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">4 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">18 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">3 €</td>
+</tr>
+</table>
+<p>Menu du bar numéro <span class="no_bar">16</span></p>
+<table class="menu">
+<tr>
+	<td class="boisson">bière</td>
+	<td class="prix">7 €</td>
+</tr>
+<tr>
+	<td class="boisson">whisky</td>
+	<td class="prix">5 €</td>
+</tr>
+<tr>
+	<td class="boisson">tequila</td>
+	<td class="prix">6 €</td>
+</tr>
+<tr>
+	<td class="boisson">gin</td>
+	<td class="prix">3 €</td>
+</tr>
+<tr>
+	<td class="boisson">vodka</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">rhum</td>
+	<td class="prix">10 €</td>
+</tr>
+<tr>
+	<td class="boisson">curaçao</td>
+	<td class="prix">14 €</td>
+</tr>
+<tr>
+	<td class="boisson">grog</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">vin</td>
+	<td class="prix">8 €</td>
+</tr>
+<tr>
+	<td class="boisson">sangria</td>
+	<td class="prix">1 €</td>
+</tr>
+</table>
+</body>
+</html>
