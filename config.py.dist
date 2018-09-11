@@ -9,6 +9,10 @@ URLS = {
             'problem':'https://',
             'solution':'https://',
         },
+        'bars': {
+            'problem':'https://',
+            'solution':'https://',
+        },
         'chess-master': 'https://',
     }
 }
