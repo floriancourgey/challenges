@@ -8,13 +8,13 @@ from bar import Bar
 from datetime import datetime
 
 # d = pq(filename='sample1.html')
-filename = 'samples/'+datetime.now().isoformat().replace(':', '')+'.html'
-local_file = open(filename, "w", encoding="utf-8")
+# filename = 'samples/'+datetime.now().isoformat().replace(':', '')+'.html'
+# local_file = open(filename, "w", encoding="utf-8")
 html = get(config.URLS['prog']['bars']['problem'], True).content.decode('utf-8')
 d = pq( html )
 # print(html)
 # save to file
-local_file.write(html)
+# local_file.write(html)
 
 bars = {}
 drinks = [] # drinks taken
@@ -58,48 +58,32 @@ for id,bar in bars.items():
     if len(bar.menu) != NB_DRINKS:
         raise ValueError('Invalid number of drinks for bar', bar)
 
-def getProbas(bars, previousBar, nextDrink):
-    probas = {}
-    minDist = 99
-    minPrice = 99
+def getProbas(bars, currentBar, nextDrink):
+    probas = []
     for id,bar in bars.items():
-        if bar == previousBar:
+        # ignore current bar
+        if bar == currentBar:
             continue
-        probas[bar.id] = {
-            'bar': bar,
-            'distanceAbs':float(previousBar.distanceToBar(bar)), # absolute distance
-            'priceAbs':float(bar.menu[nextDrink]), # absolute price
-        }
-        if probas[bar.id]['distanceAbs'] < minDist:
-            closestBar = bar
-            minDist = probas[bar.id]['distanceAbs']
-        if probas[bar.id]['priceAbs'] < minPrice:
-            cheapestBar = bar
-            minPrice = probas[bar.id]['priceAbs']
-    print('Closest bar:', closestBar, 'with dist=', probas[closestBar.id]['distanceAbs'])
-    print('Cheapest bar:', cheapestBar, 'with price '+nextDrink+'=', probas[cheapestBar.id]['priceAbs'])
-    # compute relative proba
-    maxPx = 0
-    for id,proba in probas.items():
-        proba['distanceRel'] = round(probas[closestBar.id]['distanceAbs'] / proba['distanceAbs'], 2)
-        proba['priceRel'] = round(probas[cheapestBar.id]['priceAbs'] / proba['priceAbs'], 2)
-        proba['Px'] = round(proba['distanceRel'] * proba['priceRel'], 2)
-        if proba['Px'] > maxPx:
-            maxProba = proba
-            maxPx = proba['Px']
-    # print(probas)
+        # get distance + price
+        distance = float(currentBar.distanceToBar(bar))
+        price = float(bar.menu[nextDrink])
+        Pdistance = round(1 / distance, 2)
+        Pprice = round(1 / proba['priceAbs'], 2)
+        Px = round(Pdistance * Pprice, 2)
+        probas.append({'id':id,'Px':Px})
+    maxProba = max(probas, key=lambda x: x.Px)
     return maxProba
 
 solution = [str(FIRST_BAR_ID)]
-previousBar = bars[FIRST_BAR_ID]
-for drink in drinks:
-    print('- Get Proba for drink:', drink, 'and bar:', previousBar)
-    maxProba = getProbas(bars, previousBar, drink)
+currentBar = bars[FIRST_BAR_ID]
+for drink in drinks[1:]:
+    print('- Get Proba for drink:', drink, 'and currentBar:', currentBar)
+    maxProba = getProbas(bars, currentBar, drink)
     print('maxProba:', maxProba)
-    previousBar = maxProba['bar']
-    solution.append(str(previousBar.id))
+    currentBar = maxProba['bar']
+    solution.append(str(currentBar.id))
 print(len(solution))
-solution = '-'.join(solution[:-1])
+solution = '-'.join(solution)
 print(solution)
 html = get(config.URLS['prog']['bars']['solution']+'?sequence='+solution)
 print(html)
