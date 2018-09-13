@@ -115,6 +115,6 @@ va       true
 \           0x00401350      ret
 ```
 
-4. Find the dynamic part:
+4. Get another executable and find the dynamic part:
 ![Screenshot of dynamic parts in the EXE file](https://raw.githubusercontent.com/floriancourgey/challenges/master/prog/crackme-python/screenshot-text-diff.jpg)
 => Looks like a string generator with 10 chars only lowercase (a-z)
