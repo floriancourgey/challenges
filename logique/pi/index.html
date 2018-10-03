@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .ok {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      init: <input v-model="init" />
+      <ul>
+        <li>Nombre de 0: <input v-model.number="n[0]" type="number"> {{getText.match(/0/g).length}} <span class="ok" v-show="n[0] == getText.match(/0/g).length">OK</span></li>
+        <li>Nombre de 1: <input v-model.number="n[1]" type="number"> {{getText.match(/1/g).length}} <span class="ok" v-show="n[1] == getText.match(/1/g).length">OK</span></li>
+        <li>Nombre de 2: <input v-model.number="n[2]" type="number"> {{getText.match(/2/g).length}} <span class="ok" v-show="n[2] == getText.match(/2/g).length">OK</span></li>
+        <li>Nombre de 3: <input v-model.number="n[3]" type="number"> {{getText.match(/3/g).length}} <span class="ok" v-show="n[3] == getText.match(/3/g).length">OK</span></li>
+        <li>Nombre de 4: <input v-model.number="n[4]" type="number"> {{getText.match(/4/g).length}} <span class="ok" v-show="n[4] == getText.match(/4/g).length">OK</span></li>
+        <li>Nombre de 5: <input v-model.number="n[5]" type="number"> {{getText.match(/5/g).length}} <span class="ok" v-show="n[5] == getText.match(/5/g).length">OK</span></li>
+        <li>Nombre de 6: <input v-model.number="n[6]" type="number"> {{getText.match(/6/g).length}} <span class="ok" v-show="n[6] == getText.match(/6/g).length">OK</span></li>
+        <li>Nombre de 7: <input v-model.number="n[7]" type="number"> {{getText.match(/7/g).length}} <span class="ok" v-show="n[7] == getText.match(/7/g).length">OK</span></li>
+        <li>Nombre de 8: <input v-model.number="n[8]" type="number"> {{getText.match(/8/g).length}} <span class="ok" v-show="n[8] == getText.match(/8/g).length">OK</span></li>
+        <li>Nombre de 9: <input v-model.number="n[9]" type="number"> {{getText.match(/9/g).length}} <span class="ok" v-show="n[9] == getText.match(/9/g).length">OK</span></li>
+      </ul>
+      <p class="">{{getText}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+      const app = new Vue({
+        el: '#app',
+        data: {
+          init: '74265689133728446757688354568568',
+          n: {},
+        },
+        computed:{
+          getText: function(){
+            return 'Dans cette phrase, sachant que le nombre pi possède au moins '+this.init+' décimales,\n\
+  le nombre de 0 est '+this.n[0]+'\n\
+  le nombre de 1 est '+this.n[1]+'\n\
+  le nombre de 2 est '+this.n[2]+'\n\
+  le nombre de 3 est '+this.n[3]+'\n\
+  le nombre de 4 est '+this.n[4]+'\n\
+  le nombre de 5 est '+this.n[5]+'\n\
+  le nombre de 6 est '+this.n[6]+'\n\
+  le nombre de 7 est '+this.n[7]+'\n\
+  le nombre de 8 est '+this.n[8]+'\n\
+  le nombre de 9 est '+this.n[9]+'.';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
