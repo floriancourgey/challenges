@@ -1,0 +1,4 @@
+requests
+irc
+Pillow
+pytesseract
