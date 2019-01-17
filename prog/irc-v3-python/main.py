@@ -28,6 +28,8 @@ def solve(text):
         key += chr(b)
     print('key', key)
 
+    return key, 'lovelovelove'
+
     # 3. create image
     final = bytearray()
     iPng=0
@@ -44,7 +46,7 @@ def solve(text):
 
     im = Image.open(filename).transpose(Image.ROTATE_270)
     im.save(filename)
-    im.show()
+    # im.show()
 
     config = ''
     config += ' -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
@@ -62,14 +64,12 @@ class Solver(IrcSolver):
     key = ''
     solution = ''
     def on_join(self, connection, event):
-        # print('ON JOIN', event)
         if self.STEP == 1:
             self.connection.privmsg(self.target, '.challenge_xor_ocr start')
         elif self.STEP == 2:
             print('self.connection.privmsg')
             self.connection.privmsg('#'+self.key, '.challenge_xor_ocr '+self.solution)
     def on_privmsg(self, connection, event):
-        # print('on_privmsg,', event)
         if self.STEP == 1:
             self.key, self.solution = solve(event.arguments[0])
             print('key', self.key)
