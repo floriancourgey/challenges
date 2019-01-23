@@ -28,7 +28,7 @@ def solve(text):
         key += chr(b)
     print('key', key)
 
-    return key, 'lovelovelove'
+    # return key, 'lovelovelove', None
 
     # 3. create image
     final = bytearray()
@@ -43,19 +43,29 @@ def solve(text):
     out_file = open(filename, 'wb') # [w]riting as [b]inary
     out_file.write(final)
     out_file.close()
-
+    # rotate 270
     im = Image.open(filename).transpose(Image.ROTATE_270)
-    im.save(filename)
+    # convert to black & white
+    gray = im.convert('L')
+    bw = gray.point(lambda x: 0 if x<1 else 255, '1')
+    bw.save(filename)
+    im = bw
+    # pixels = im.load() # create the pixel map
+    # for i in range(im.size[0]): # for every pixel:
+    #     for j in range(im.size[1]):
+    #         if pixels[i,j] != (0, 0, 0): # if not black:
+    #             pixels[i,j] = (255, 255, 255) # change to white
+    # im.save(filename)
     # im.show()
 
     config = ''
     config += ' -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     config += ' --psm 13'
-    config += ' --oem 1'
+    # config += ' --oem 1'
 
     solution = pytesseract.image_to_string(im, config=config)
 
-    return key, solution
+    return key, solution, im
 
 import irc.client
 irc.client.ServerConnection.buffer_class.encoding = 'latin-1' # because of bad non-ascii char
@@ -63,25 +73,29 @@ irc.client.ServerConnection.buffer_class.encoding = 'latin-1' # because of bad n
 class Solver(IrcSolver):
     key = ''
     solution = ''
+    im = None
     def on_join(self, connection, event):
         if self.STEP == 1:
             self.connection.privmsg(self.target, '.challenge_xor_ocr start')
         elif self.STEP == 2:
             print('self.connection.privmsg')
             self.connection.privmsg('#'+self.key, '.challenge_xor_ocr '+self.solution)
+            self.im.show()
     def on_privmsg(self, connection, event):
         if self.STEP == 1:
-            self.key, self.solution = solve(event.arguments[0])
+            self.key, self.solution, self.im = solve(event.arguments[0])
             print('key', self.key)
             print('solution', self.solution)
             if len(self.solution) != 12:
                 exit('Solution must be 12 char long')
-            # exit()
             self.STEP = 2
             self.connection.join('#'+self.key)
             return
         elif self.STEP == 2:
             exit()
+    def on_pubmsg(self, connection, event):
+        if event.arguments[0] == 'Vous avez mal lu le texte.':
+            exit('Vous avez mal lu le texte.')
 
 c = Solver()
 c.debug_all_events=True
