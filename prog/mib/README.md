@@ -9,3 +9,9 @@
 - `.iso.org.dod.internet.private.enterprises.ACME.processTable.processEntry.pid`
 - `snmptranslate -m ACME-MIB -Tp -OS`
 - affiche le tree
+
+
+```bash
+$ ./test.py
+# SNMPv2-MIB::sysDescr.0 = Linux zeus 4.8.6.5-smp #2 SMP Sun Nov 13 14:58:11 CDT 2016 i686
+```
