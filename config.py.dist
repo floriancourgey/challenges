@@ -14,5 +14,6 @@ URLS = {
             'solution':'https://',
         },
         'chess-master': 'https://',
+        'mib': 'www.***.org',
     }
 }
