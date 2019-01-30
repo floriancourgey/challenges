@@ -22,9 +22,11 @@ class OcrMonotype:
         self.dicPath = dicPath
         self.addUnknownToDic = addUnknownToDic
         self.initDic()
+
     def loadFile(self, filename):
         self.filename = filename
-        self.im = Image.open(filename)
+        self.im = Image.open(filename).convert('L')
+        print('Loading image', filename, '-', self.im.format, self.im.size, self.im.mode)
         self.X_IMG = self.im.size[0]
         self.Y_IMG = self.im.size[1]
         # get the number of letters to read
@@ -32,6 +34,7 @@ class OcrMonotype:
         self.X_NB_LETTERS = int( (self.X_IMG-self.X_ORIGIN) / self.X_LTR )
         print('# of lines: '+str(self.Y_NB_LETTERS))
         print('# of letters: '+str(self.X_NB_LETTERS))
+
     def getMatricesFromImage(self):
         self.linesOfMatrices = [] # each line will be an array of matrices
         # for each line
@@ -48,6 +51,7 @@ class OcrMonotype:
                 if xLetter > 1 and self.linesOfMatrices[yLetter][xLetter]==self.EMPTY and self.linesOfMatrices[yLetter][xLetter-1]==self.EMPTY:
                     self.linesOfMatrices[yLetter] = self.linesOfMatrices[yLetter][:-2]
                     break
+
     def getLettersFromImage(self):
         self.lines = [] # each line will be an array string
         for y,lineOfMatrices in enumerate(self.linesOfMatrices):
@@ -55,12 +59,14 @@ class OcrMonotype:
             for x,matrix in enumerate(lineOfMatrices):
                 self.lines[y] += self.matrixToLetter(matrix, x, y)
         return self.lines
+
     def compute(self):
         self.getMatricesFromImage()
         self.getLettersFromImage()
         return self.lines
-    ''' convert a matrix to a letter '''
+
     def matrixToLetter(self, matrix, x, y):
+        ''' convert a matrix to a letter '''
         if matrix == self.EMPTY:
             return ' '
         for letter in self.DIC:
@@ -81,8 +87,9 @@ class OcrMonotype:
                 f.write('\n')
         # then return '*'
         return '*'
-    ''' converts the origin of a letter to a matrix '''
+
     def letterOrigintoMatrix(self, origX, origY):
+        ''' converts the origin of a letter to a matrix '''
         matrix = []
 
         for y in range(0, self.Y_LTR):
@@ -91,10 +98,14 @@ class OcrMonotype:
                 matrix[y].append( self.getBitFromPixel(origX+x,origY+y) )
 
         return matrix
-    ''' return true if pixel(x,y).red>127 '''
+
     def getBitFromPixel(self, x, y):
-        return self.im.getpixel( (x, y) )[0] > 127
+        ''' return true if pixel(x,y).red>127 '''
+        # return self.im.getpixel( (x, y) )[0] > 127 # for "RGB"
+        return self.im.getpixel( (x, y) ) > 127 # for "L" luminance (grey scale)
+
     def initDic(self):
+        print('Loading dic', self.dicPath)
         f = open(self.dicPath, 'r')
         i = 0
         lines = f.read().split('\n')
