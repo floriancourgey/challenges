@@ -4,9 +4,17 @@ import sys
 sys.path.insert(0, '../..')
 from functions import IrcSolver
 import base64
+import os
 from PIL import Image
 import pytesseract
 from datetime import datetime
+from prog.ocr_v3_python.OcrMonotype import OcrMonotype
+
+ocr = OcrMonotype(8, 10, 1, 4, 0, 0, os.path.abspath('dico_8_10.txt'), True)
+# ocr.loadFile("results/2019-01-22T234125.310124file.png")
+# result = ocr.compute()
+# print(result)
+# exit()
 
 # 1. base64decode
 # 2. find xor key with 8 first chars
@@ -45,25 +53,22 @@ def solve(text):
     out_file.close()
     # rotate 270
     im = Image.open(filename).transpose(Image.ROTATE_270)
-    # convert to black & white
+    # convert to gray scale
     gray = im.convert('L')
+    # convert to black and white
     bw = gray.point(lambda x: 0 if x<1 else 255, '1')
     bw.save(filename)
     im = bw
-    # pixels = im.load() # create the pixel map
-    # for i in range(im.size[0]): # for every pixel:
-    #     for j in range(im.size[1]):
-    #         if pixels[i,j] != (0, 0, 0): # if not black:
-    #             pixels[i,j] = (255, 255, 255) # change to white
-    # im.save(filename)
-    # im.show()
 
     config = ''
     config += ' -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     config += ' --psm 13'
     # config += ' --oem 1'
 
-    solution = pytesseract.image_to_string(im, config=config)
+    # solution = pytesseract.image_to_string(im, config=config)
+    ocr.loadFile(filename)
+    solution = ocr.compute()[0]
+    # print(result)
 
     return key, solution, im
 
