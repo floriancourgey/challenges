@@ -16,9 +16,19 @@ def printMatrix():
             print(matrix[y][x], end='')
         print()
 matrix = [['-' for x in range(SIZE)] for y in range(SIZE)] # create matrix of 1
-printMatrix()
+# printMatrix()
 
-f = open('sample.txt', 'r')
+with open('sample.html', 'r') as f:
+    lines = f.read()
+lines = lines.replace('<html><p style="font-family:courier, monospace">', '')
+lines = lines.replace('<br /></p></html>', '')
+lines = lines.replace('&nbsp;', ' ')
+lines = lines.replace('-', ' ')
+lines = lines.replace('<br />', '\n')
+print(lines)
+with open('sample.txt', 'w') as f:
+    lines = f.write(lines)
+exit()
 lines = f.readlines()[0:SIZE+2]
 print(lines)
 # find rays
