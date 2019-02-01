@@ -27,9 +27,10 @@ lines = lines.replace('-', ' ')
 lines = lines.replace('<br />', '\n')
 print(lines)
 with open('sample.txt', 'w') as f:
-    lines = f.write(lines)
-exit()
-lines = f.readlines()[0:SIZE+2]
+    f.write(lines)
+# exit()
+# lines = f.readlines()[0:SIZE+2]
+lines = lines.split('\n')
 print(lines)
 # find rays
 rays = {}
