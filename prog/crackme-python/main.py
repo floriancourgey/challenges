@@ -1,15 +1,21 @@
 #! /usr/bin/env python3
 # coding: utf-8
 # import re
+import sys
+sys.path.insert(0, '../..')
+from config import *
+from datetime import datetime
 import os
-import pefile
-# opener = urllib2.build_opener()
-# opener.addheaders.append(('Cookie', config.COOKIE))
-# url = URL
-# f = opener.open(url)#.read()
-# with open('./crackeme.exe', "wb") as local_file:
-#     local_file.write(f.read())
-
+import requests
+# import pefile
+url = URLS['prog']['crackme']
+print('Downloading crackme')
+r = requests.get(url, cookies=COOKIE_DICT)
+filename = './crackme.exe'+datetime.now().strftime('-%Y%m%d-%H%M%S.exe')
+print('Saving as '+filename)
+with open(filename, "wb") as local_file:
+    local_file.write(r.content)
+exit()
 pe =  pefile.PE('./crackeme.exe')
 
 print('AddressOfEntryPoint:', pe.OPTIONAL_HEADER.AddressOfEntryPoint)
