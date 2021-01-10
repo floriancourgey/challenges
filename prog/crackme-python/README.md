@@ -118,3 +118,7 @@ va       true
 4. Get another executable and compare to find the dynamic part:
 ![Screenshot of dynamic parts in the EXE file](https://raw.githubusercontent.com/floriancourgey/challenges/master/prog/crackme-python/screenshot-text-diff.jpg)
 => Looks like a string generator with 10 chars only lowercase (a-z)
+
+5. A char array of length=10 is filled with random letters and index, from address 0x004012d2 to 0x004012f6. The exe is using little endian order, so first characters come at a lesser address. And as it is a stack, it needs to be reverted.
+
+6. radare2 can output n disassembled instructions with `pi n @ address`, so we will use `pi 10 @ 0x004012d2`.

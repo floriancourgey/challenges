@@ -5,35 +5,43 @@ import sys
 sys.path.insert(0, '../..')
 from config import *
 from datetime import datetime
-import os
 import requests
-# import pefile
-url = URLS['prog']['crackme']
+import r2pipe
+import re
+
+urlProblem = URLS['prog']['crackme']['problem']
+urlSolution = URLS['prog']['crackme']['solution']
 print('Downloading crackme')
-r = requests.get(url, cookies=COOKIE_DICT)
+r = requests.get(urlProblem, cookies=COOKIE_DICT)
 filename = './crackme.exe'+datetime.now().strftime('-%Y%m%d-%H%M%S.exe')
 print('Saving as '+filename)
+
 with open(filename, "wb") as local_file:
     local_file.write(r.content)
-exit()
-pe =  pefile.PE('./crackeme.exe')
 
-print('AddressOfEntryPoint:', pe.OPTIONAL_HEADER.AddressOfEntryPoint)
-print('ImageBase:', pe.OPTIONAL_HEADER.ImageBase)
+password = ''
+# filename = 'crackme.exe-20210110-183417.exe'
+# open file with r2
+r = r2pipe.open(filename)
+r2cmd = 'pi 10 @ 0x004012d2'
+# parse output and store it into a dict {i: val,}
+lines = r.cmd(r2cmd)
+characters = {}
+for line in lines.split('\n')[:-1]:
+  print('- '+line)
+  match = re.search('ebp - 0x(.+)], 0x(.+)', line)
+  key = int(match.group(1), 16)
+  value = bytearray.fromhex(match.group(2)).decode()
+  print('key '+str(key)+', value '+value)
+  characters[key] = value
 
-print('NumberOfSections:', pe.FILE_HEADER.NumberOfSections)
-for i,section in enumerate(pe.sections):
-  print('Section '+str(i+1)+': ',section.Name, hex(section.VirtualAddress),
-    hex(section.Misc_VirtualSize), section.SizeOfRawData )
+for value in (characters[i] for i in sorted(characters, reverse=True)):
+  password += value
 
-print('NumberOfDll:', len(pe.DIRECTORY_ENTRY_IMPORT))
-for i,entry in enumerate(pe.DIRECTORY_ENTRY_IMPORT):
-  print('DLL '+str(i+1)+': ',entry.dll)
-  for imp in entry.imports:
-    print('\t', hex(imp.address), imp.name)
+print('PASSWORD: '+password)
 
-# print(pe.dump_info())
-
-for exp in pe.DIRECTORY_ENTRY_EXPORT.symbols:
-  print(hex(pe.OPTIONAL_HEADER.ImageBase + exp.address), exp.name, exp.ordinal)
-# print([entry.id for entry in pe.DIRECTORY_ENTRY_RESOURCE.entries])
+url = urlSolution.replace('REPONSE', password)
+print('calling: '+url)
+r = requests.get(url, cookies=COOKIE_DICT)
+print(r.content)
+print((r.content).decode('utf-8'))
