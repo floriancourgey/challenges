@@ -1,0 +1,5 @@
+- robots
+- backup
+- zip
+- read source login_admin & sql
+- hashes.com
